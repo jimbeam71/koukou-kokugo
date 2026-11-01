@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高校 古文・漢文</title>
+<meta name="description" content="高校生のための古文・漢文の無料学習サイト。基礎から共通テスト、定期テスト対策まで。">
+<style>
+:root {
+  --bg: #EEF1F5; --card: #FFFFFF; --ink: #18212F; --muted: #566176; --line: #D3D9E3;
+  --mark: #2A4FC4; --mark-soft: #E1E8FB; --on-mark: #FFFFFF;
+  --warm: #B8741A; --warm-soft: #FFF3DE; --warm-line: #E8B766;
+  --f-han: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", serif;
+  --f-ui: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111723; --card: #1A2231; --ink: #E7ECF4; --muted: #9AA5B9; --line: #2D3749;
+    --mark: #8FA9FF; --mark-soft: #25314F; --on-mark: #0C1220;
+    --warm: #F0B864; --warm-soft: #3A2D16; --warm-line: #8A6628;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-ui); line-height: 1.75; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 28px 16px 48px; }
+.eyebrow { font-size: .85rem; letter-spacing: .12em; color: var(--muted); font-weight: 700; }
+h1 { font-family: var(--f-han); font-size: 2rem; line-height: 1.35; margin: 4px 0 8px; }
+.lead { color: var(--muted); margin: 0 0 22px; }
+.cards { display: grid; gap: 14px; }
+a.card {
+  display: block; text-decoration: none; color: inherit; background: var(--card);
+  border: 2px solid var(--line); border-radius: 16px; padding: 18px 18px 16px;
+}
+a.card:hover, a.card:focus-visible { border-color: var(--mark); outline: none; }
+a.card .tag { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 1px 10px; }
+a.card h2 { font-family: var(--f-han); font-size: 1.6rem; margin: 6px 0 2px; }
+a.card p { margin: 0; color: var(--muted); font-size: .95rem; }
+a.card .go { display: block; margin-top: 10px; font-weight: 700; color: var(--mark); }
+a.card.teiki { background: var(--warm-soft); border-color: var(--warm-line); }
+a.card.teiki:hover, a.card.teiki:focus-visible { border-color: var(--warm); }
+a.card.teiki .tag { color: var(--warm); background: transparent; border: 1px solid var(--warm-line); }
+a.card.teiki .go { color: var(--warm); }
+.note { margin-top: 26px; font-size: .85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="eyebrow">高校生のための</p>
+  <h1>古文・漢文</h1>
+  <p class="lead">スマホでもパソコンでも、無料で使えます。どれから始めてもOK。</p>
+
+  <nav class="cards" aria-label="メニュー">
+    <a class="card" href="https://kobun.senta1111.workers.dev/">
+      <span class="tag">基礎から</span>
+      <h2>古文</h2>
+      <p>超基礎から。ミニ問題で少しずつ読めるようになる。</p>
+      <span class="go">古文をはじめる →</span>
+    </a>
+    <a class="card" href="https://kanbun.senta1111.workers.dev/">
+      <span class="tag">共通テストまで</span>
+      <h2>漢文</h2>
+      <p>返り点・句形・重要語から、共通テスト形式の文章まで。</p>
+      <span class="go">漢文をはじめる →</span>
+    </a>
+    <a class="card teiki" href="teiki.html">
+      <span class="tag">学校のテスト用</span>
+      <h2>定期テスト対策</h2>
+      <p>古文・漢文の定期テストに向けた対策ページ。</p>
+      <span class="go">定期テスト対策へ →</span>
+    </a>
+  </nav>
+
+  <p class="note">学習の記録は、いま使っているスマホ・パソコンの中だけに保存されます。</p>
+</main>
+</body>
+</html>
