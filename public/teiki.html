@@ -6,34 +6,50 @@
 <title>定期テスト対策｜高校 古文・漢文</title>
 <style>
 :root {
-  --bg: #EEF1F5; --card: #FFFFFF; --ink: #18212F; --muted: #566176; --line: #D3D9E3; --mark: #2A4FC4;
+  --bg: #EEF1F5; --card: #FFFFFF; --ink: #18212F; --muted: #566176; --line: #D3D9E3; --mark: #2A4FC4; --mark-soft: #E1E8FB;
   --f-han: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", serif;
   --f-ui: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #111723; --card: #1A2231; --ink: #E7ECF4; --muted: #9AA5B9; --line: #2D3749; --mark: #8FA9FF; color-scheme: dark; }
+  :root { --bg: #111723; --card: #1A2231; --ink: #E7ECF4; --muted: #9AA5B9; --line: #2D3749; --mark: #8FA9FF; --mark-soft: #25314F; color-scheme: dark; }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-ui); line-height: 1.75; }
-.wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 14px 16px 48px; }
 .back { display: inline-block; text-decoration: none; color: var(--mark); font-weight: 700; padding: 6px 0; }
-h1 { font-family: var(--f-han); font-size: 1.8rem; line-height: 1.35; margin: 10px 0 8px; }
-.box { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 18px; margin-top: 16px; }
-.box p { margin: 0 0 10px; }
-.box a { color: var(--mark); font-weight: 700; }
+h1 { font-family: var(--f-han); font-size: 1.8rem; line-height: 1.35; margin: 8px 0 6px; }
+.lead { color: var(--muted); margin: 0 0 18px; }
+h2 { font-family: var(--f-han); font-size: 1.15rem; margin: 26px 0 8px; }
+a.card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; }
+a.card:hover, a.card:focus-visible { border-color: var(--mark); outline: none; }
+a.card .tag { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 0 10px; }
+a.card h3 { font-family: var(--f-han); font-size: 1.4rem; margin: 4px 0 0; }
+a.card p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+a.card .go { display: block; margin-top: 6px; font-weight: 700; color: var(--mark); }
+.soon { background: var(--card); border: 2px dashed var(--line); border-radius: 16px; padding: 12px 16px; color: var(--muted); font-size: .92rem; }
+.links a { color: var(--mark); font-weight: 700; display: inline-block; margin: 2px 12px 2px 0; }
 </style>
 </head>
 <body>
 <main class="wrap">
   <a class="back" href="./">← 古文・漢文トップ</a>
   <h1>定期テスト対策</h1>
-  <div class="box">
-    <p>いま、つくっています。もう少しだけ待ってね。</p>
-    <p>それまでは、こちらで練習できます。</p>
-    <p><a href="https://kobun.senta1111.workers.dev/">古文の問題へ →</a></p>
-    <p><a href="https://kanbun.senta1111.workers.dev/">漢文の問題へ →</a></p>
-  </div>
+  <p class="lead">教科書の作品ごとに、流れの図・句形・内容理解の問題を用意します。選択肢ごとに理由が読めるので、まちがえても大丈夫。</p>
+
+  <h2>漢文</h2>
+  <a class="card" href="teiki-gashin.html">
+    <span class="tag">『十八史略』　12問</span>
+    <h3>臥薪嘗胆</h3>
+    <p>呉と越の戦い。使役・置き字・「而」＝「汝」、子胥と夫差の最期まで。</p>
+    <span class="go">問題をはじめる →</span>
+  </a>
+
+  <h2>古文</h2>
+  <div class="soon">まだ準備中です。教科書の作品がわかり次第、追加していきます。</div>
+
+  <h2>基礎から練習したいとき</h2>
+  <p class="links"><a href="https://kobun.senta1111.workers.dev/">古文の問題へ →</a><a href="https://kanbun.senta1111.workers.dev/">漢文の問題へ →</a></p>
 </main>
 </body>
 </html>

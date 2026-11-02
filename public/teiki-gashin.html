@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>臥薪嘗胆｜漢文 定期テスト対策</title>
+<meta name="description" content="『十八史略』臥薪嘗胆の定期テスト対策。流れの図、句形、内容理解を、選択肢ごとの解説つきで確認できます。">
+<style>
+:root {
+  --bg: #EEF1F5; --card: #FFFFFF; --ink: #18212F; --muted: #566176; --line: #D3D9E3;
+  --mark: #2A4FC4; --mark-soft: #E1E8FB; --on-mark: #FFFFFF;
+  --ok: #18794E; --ok-soft: #DDF2E7; --ng: #B93232; --ng-soft: #FBE3E3;
+  --go: #2A4FC4; --etsu: #18794E; --go-soft: #E1E8FB; --etsu-soft: #DDF2E7;
+  --warm: #B8741A; --warm-soft: #FFF3DE; --warm-line: #E8B766;
+  --f-han: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", serif;
+  --f-ui: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111723; --card: #1A2231; --ink: #E7ECF4; --muted: #9AA5B9; --line: #2D3749;
+    --mark: #8FA9FF; --mark-soft: #25314F; --on-mark: #0C1220;
+    --ok: #62D29A; --ok-soft: #153A2A; --ng: #FF9393; --ng-soft: #43212B;
+    --go: #8FA9FF; --etsu: #62D29A; --go-soft: #25314F; --etsu-soft: #153A2A;
+    --warm: #F0B864; --warm-soft: #3A2D16; --warm-line: #8A6628;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-ui); line-height: 1.8; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 14px 16px 56px; }
+.back { display: inline-block; text-decoration: none; color: var(--mark); font-weight: 700; padding: 6px 0; }
+.eyebrow { font-size: .85rem; letter-spacing: .12em; color: var(--muted); font-weight: 700; margin: 8px 0 0; }
+h1 { font-family: var(--f-han); font-size: 1.9rem; line-height: 1.35; margin: 2px 0 6px; }
+.lead { color: var(--muted); margin: 0 0 14px; }
+h2 { font-family: var(--f-han); font-size: 1.3rem; margin: 30px 0 10px; }
+.box { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px 16px; margin: 10px 0; }
+ruby rt { font-size: .5em; font-weight: 400; color: var(--muted); }
+.bun { font-family: var(--f-han); font-size: 1.2rem; letter-spacing: .06em; }
+.bun .k, .k { font-family: var(--f-ui); font-style: normal; font-size: .88em; vertical-align: -.3em; margin: 0 .1em 0 .05em; color: var(--mark); font-weight: 700; letter-spacing: 0; }
+/* 流れの図 */
+.flow { list-style: none; margin: 0; padding: 0; }
+.flow li { position: relative; display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 0 0 14px; }
+.flow li:not(:last-child)::before { content: ""; position: absolute; left: 31px; top: 34px; bottom: 0; border-left: 3px dotted var(--line); }
+.flow .who { align-self: start; justify-self: center; width: 52px; text-align: center; font-weight: 700; font-size: .85rem; border-radius: 999px; padding: 3px 0; border: 2px solid; background: var(--card); position: relative; z-index: 1; }
+.flow .go .who { color: var(--go); border-color: var(--go); background: var(--go-soft); }
+.flow .etsu .who { color: var(--etsu); border-color: var(--etsu); background: var(--etsu-soft); }
+.flow .both .who { color: var(--warm); border-color: var(--warm-line); background: var(--warm-soft); }
+.flow .yr { display: block; font-size: .78rem; color: var(--muted); font-weight: 700; }
+.flow .txt { background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.flow .go .txt { border-left: 6px solid var(--go); }
+.flow .etsu .txt { border-left: 6px solid var(--etsu); }
+.flow .both .txt { border-left: 6px solid var(--warm-line); }
+.flow b.key { color: var(--warm); }
+/* 人物表 */
+table.ppl { width: 100%; border-collapse: collapse; font-size: .95rem; }
+table.ppl th, table.ppl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.ppl th { white-space: nowrap; font-weight: 700; }
+.tg { display: inline-block; font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 0 8px; margin-right: 4px; }
+.tg.go { color: var(--go); background: var(--go-soft); } .tg.etsu { color: var(--etsu); background: var(--etsu-soft); }
+/* 句形の図解 */
+.kei { display: grid; gap: 10px; }
+.kei .item { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; }
+.kei h3 { margin: 0 0 6px; font-size: 1rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+.chip { background: var(--mark-soft); color: var(--mark); border-radius: 8px; padding: 2px 10px; font-weight: 700; font-family: var(--f-han); }
+.arrow { color: var(--muted); font-weight: 700; }
+.kei p { margin: 4px 0 0; font-size: .92rem; color: var(--muted); }
+/* クイズ */
+.qhead { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+.bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; margin-bottom: 12px; }
+.bar i { display: block; height: 100%; background: var(--mark); }
+.q { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 16px; }
+.q .tag { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 0 10px; }
+.q .p { margin: 8px 0 8px; font-weight: 700; }
+.q .src { margin: 8px 0 12px; padding: 8px 12px; background: var(--bg); border-radius: 10px; border-left: 4px solid var(--line); }
+.opts { display: grid; gap: 8px; margin-top: 10px; }
+button.opt, .optr {
+  display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start; text-align: left; width: 100%;
+  font: inherit; color: inherit; background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px; min-height: 48px;
+}
+button.opt { cursor: pointer; }
+button.opt:hover, button.opt:focus-visible { border-color: var(--mark); outline: none; }
+.mk { font-weight: 700; color: var(--muted); text-align: center; }
+.optr .why { grid-column: 2; font-size: .9rem; color: var(--muted); margin-top: 2px; }
+.optr.ok { border-color: var(--ok); background: var(--ok-soft); } .optr.ok .mk { color: var(--ok); }
+.optr.ng.picked { border-color: var(--ng); background: var(--ng-soft); } .optr.ng.picked .mk { color: var(--ng); }
+.optr .you { display: block; font-size: .78rem; font-weight: 700; margin-top: 2px; color: var(--muted); }
+.exp { margin-top: 12px; padding: 10px 14px; border-radius: 12px; background: var(--warm-soft); border: 2px solid var(--warm-line); }
+.exp b { color: var(--warm); }
+.verdict { font-weight: 700; margin: 12px 0 0; font-size: 1.05rem; }
+.verdict.ok { color: var(--ok); } .verdict.ng { color: var(--ng); }
+button.btn { font: inherit; font-weight: 700; cursor: pointer; border: 0; border-radius: 12px; background: var(--mark); color: var(--on-mark); padding: 12px 18px; min-height: 48px; width: 100%; margin-top: 12px; }
+button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid var(--mark); }
+.score { text-align: center; padding: 20px 10px; }
+.score .n { font-family: var(--f-han); font-size: 2.6rem; font-weight: 700; }
+.revq { margin: 14px 0; }
+.revq h3 { font-size: 1rem; margin: 0 0 6px; }
+.note { margin-top: 26px; font-size: .85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="teiki.html">← 定期テスト対策</a>
+  <p class="eyebrow">漢文　『十八史略』</p>
+  <h1>臥薪嘗胆</h1>
+  <p class="lead">呉と越の戦いの話です。まず図で流れをつかんでから、問題を解こう。</p>
+
+  <h2>① 流れをつかむ</h2>
+  <ol class="flow" id="flow"></ol>
+
+  <h2>② 人物を整理する</h2>
+  <div class="box" id="ppl"></div>
+
+  <h2>③ 先に確認：この話に出る句形</h2>
+  <div class="kei" id="kei"></div>
+
+  <h2>④ 問題</h2>
+  <div id="quiz"></div>
+  <button class="btn sub" id="revbtn" type="button">全問題を答えつきで見る（確認用）</button>
+  <div id="rev" hidden></div>
+
+  <p class="note">この問題は、教科書の内容を参考に、自分の言葉で作り直したものです。学校のテストでは、教科書の本文・書き下し文もあわせて確認してください。</p>
+</main>
+
+<script>
+(function () {
+  /* ---------- 読み（ふりがな）：各文字列の最初の1回だけ付ける ---------- */
+  var RB = [
+    ['大夫種', '<ruby>大夫<rt>たいふ</rt></ruby><ruby>種<rt>しょう</rt></ruby>'],
+    ['夫差', 'ふさ'], ['句践', 'こうせん'], ['闔廬', 'こうりょ'], ['子胥', 'ししょ'], ['伯嚭', 'はくひ'],
+    ['范蠡', 'はんれい'], ['会稽', 'かいけい'], ['夫椒', 'ふしょう'], ['属鏤', 'しょくる'], ['姑蘇', 'こそ'],
+    ['幪冒', 'ぼうぼう'], ['鴟夷', 'しい'], ['檟', 'ひさぎ'], ['伍員', 'ごうん']
+  ];
+  function ruby(s) {
+    return s.split(/(<span class="bun">.*?<\/span>)/).map(function (seg) {
+      if (seg.indexOf('<span class="bun">') === 0) return seg;
+      RB.forEach(function (r) {
+        var i = seg.indexOf(r[0]); if (i < 0) return;
+        var h = r[1].indexOf('<') === 0 ? r[1] : '<ruby>' + r[0] + '<rt>' + r[1] + '</rt></ruby>';
+        seg = seg.slice(0, i) + h + seg.slice(i + r[0].length);
+      });
+      return seg;
+    }).join('');
+  }
+  function fmt(s) { return ruby(s).replace(/\^([一二三上中下レ]+)\^/g, '<i class="k">$1</i>'); }
+  function esc(s) { return String(s); }
+
+  /* ---------- ① 流れの図 ---------- */
+  var FLOW = [
+    ['go', '呉', '前496年', '呉が越を攻め、呉王の闔廬が傷を負って死ぬ。子の夫差が王になる。夫差は<b class="key">薪の上に寝て</b>（臥薪）、「越人が父を殺したことを忘れるな」と家来に呼ばせ、復讐を誓う。'],
+    ['go', '呉', '前494年', '<b class="key">夫椒の戦い</b>。夫差が越を破る。'],
+    ['etsu', '越', '', '越王の句践は、残った兵で会稽山にたてこもり、「臣下になります。妻も召し使いにします」と願い出る。（<b class="key">会稽の恥</b>）'],
+    ['both', '呉', '', '子胥は「許してはいけない」と反対。しかし太宰の伯嚭は、越から賄賂を受け取り、夫差を説いて越を許させる。'],
+    ['etsu', '越', '', '句践は国に帰り、胆を座る所にも寝る所にも懸け、<b class="key">その胆を嘗めて</b>（嘗胆）恥を思い出す。国の政治は大夫の種に任せ、范蠡と軍の備えを整える。'],
+    ['go', '呉', '', '子胥は意見が用いられず、恨む。夫差は子胥に名剣の属鏤を与える（＝自害の命令）。子胥は遺言を残して自害。夫差は遺体を鴟夷に入れて江に投げ、呉の人々はあわれんで祠を建てた。'],
+    ['etsu', '越', '', '越は十年かけて人口と財産を増やし（生聚）、さらに十年かけて民を教え軍事訓練をした（教訓）。'],
+    ['both', '呉', '前473年', '越が呉を攻め、呉は三度戦って三度敗れる。夫差は姑蘇山に逃れて講和を願うが、范蠡は許さない。夫差は「子胥に合わせる顔がない」と言い、顔を布でおおって死ぬ。']
+  ];
+  document.getElementById('flow').innerHTML = FLOW.map(function (f) {
+    return '<li class="' + f[0] + '"><span class="who">' + f[1] + '</span><div class="txt">' + (f[2] ? '<span class="yr">' + f[2] + '</span>' : '') + fmt(f[3]) + '</div></li>';
+  }).join('');
+
+  /* ---------- ② 人物 ---------- */
+  var PPL = [
+    ['go', '夫差', '呉王。父を越に殺され、復讐を誓う（臥薪）。'],
+    ['go', '闔廬', '夫差の父。越を攻めて傷を負い、死ぬ。'],
+    ['go', '子胥', '呉の家臣（本名は伍員）。越を許すなと反対し、のちに自害。'],
+    ['go', '伯嚭', '呉の太宰（最高位の役人）。越の賄賂を受けて、夫差に越を許させた。'],
+    ['etsu', '句践', '越王。会稽の恥を忘れず、胆を嘗めて復讐を誓う（嘗胆）。'],
+    ['etsu', '范蠡・種', '越の家臣。種は国政を任され、范蠡は軍の準備を担当。']
+  ];
+  document.getElementById('ppl').innerHTML = '<table class="ppl"><tbody>' + PPL.map(function (p) {
+    var nm = p[1] === '范蠡・種' ? '<ruby>范蠡<rt>はんれい</rt></ruby>・<ruby>種<rt>しょう</rt></ruby>' : fmt(p[1]);
+    return '<tr><th><span class="tg ' + p[0] + '">' + (p[0] === 'go' ? '呉' : '越') + '</span>' + nm + '</th><td>' + fmt(p[2]) + '</td></tr>';
+  }).join('') + '</tbody></table>';
+
+  /* ---------- ③ 句形の図解 ---------- */
+  document.getElementById('kei').innerHTML = [
+    '<div class="item"><h3>① 使役「使 A B」</h3><div class="chips"><span class="chip">使</span><span class="chip">A</span><span class="chip">B</span><span class="arrow">→</span><span class="chip">A をして B（せ）しむ</span></div><p>「A に B させる」。「しむ」は最後に読むので、B の下から「使」に返る。</p></div>',
+    '<div class="item"><h3>② 置き字「于・於・乎」</h3><div class="chips"><span class="chip">越を</span><span class="chip">夫椒<small>に</small></span><span class="chip" style="opacity:.55">于</span><span class="arrow">→</span><span class="chip">于は読まない</span></div><p>「于」は場所などを示す「に」の役目。読まないで、直前の字に送り仮名「ニ」をつける。</p></div>',
+    '<div class="item"><h3>③ 「而」「女」＝「汝」（おまえ）</h3><div class="chips"><span class="chip">而・女</span><span class="arrow">＝</span><span class="chip">なんぢ（おまえ）</span></div><p>ふつうの「而」は「て／して」とつなぐ字。でも、人を呼びかける場面では「汝」の意味になる。文末の「邪」は「か」（疑問）。</p></div>'
+  ].join('');
+
+  /* ---------- ④ 問題 ---------- */
+  var Q = [
+    { tag: '故事成語', p: '「臥薪嘗胆」は、この話から生まれた故事成語です。意味として最も適当なものは？',
+      opts: [
+        { t: '目的をとげるために、長い間、苦労をたえしのぶこと。', ok: 1, why: '夫差は薪の上に寝て、句践は苦い胆を嘗めて、復讐の気持ちを忘れないようにした。そこから、「目的のために苦労を重ねる」意味になった。' },
+        { t: '仲の悪い者どうしが、同じ場所にいあわせること。', why: 'これは「呉越同舟」の意味。同じ呉と越の争いに関わる言葉だが、別の故事。' },
+        { t: '敵に負けて、降参してゆるしを願うこと。', why: '降参を願ったのは、会稽山での句践の場面。「臥薪嘗胆」は、そのあとの、復讐のための努力のほうをいう。' },
+        { t: '昔の苦しみを忘れて、のんびり暮らすこと。', why: '意味が逆。苦しみを忘れないように、わざと身を苦しめたのが「臥薪嘗胆」。' }
+      ],
+      exp: '「臥薪」＝薪の上に寝る（夫差）、「嘗胆」＝苦い胆をなめる（句践）。復讐を忘れないように、わざと苦しい思いをして気持ちを保った。' },
+
+    { tag: '句形：使役', p: '夫差は、復讐を忘れないように、出入りのたびに家来に大声で言わせました。次の一文の書き下し文として正しいものは？',
+      src: '<span class="bun">出入使^二^人呼曰^一^</span>',
+      opts: [
+        { t: '出入するごとに、人をして呼びて曰はしむ。', ok: 1, why: '「使」は使役。「人をして〜しむ」と読み、「人に（呼ばせて）言わせる」の意味になる。' },
+        { t: '出入するごとに、人を使ひて呼びて曰く。', why: '「使」を、ふつうの動詞「つかふ」と読んでいる。「使」の下に人（A）と動作（B）が続く形は、使役。' },
+        { t: '出入するごとに、人使ひて呼びて曰ふ。', why: '「使」が使役なら、最後の「曰」に「しむ」をつけて読む。送り仮名と読む順が合わない。' },
+        { t: '出入するごとに、人の使ひとして呼びて曰ふ。', why: '「人の使い」という名詞にはならない。「使」から下の字に、使役の形で返っている。' }
+      ],
+      exp: '「使 A B」＝「A をして B しむ」。読む順は「人」→「呼」→「曰」→「使」。「しむ」は最後に読むので、「曰」から「使」に返る（一・二点）。ここでは、夫差が家来に言わせた内容が次の問題の文。' },
+
+    { tag: '句形：汝・疑問', p: '家来が夫差に呼びかけた次の言葉の意味として、最も適当なものは？（「而」は「汝」と同じ意味、「邪」は疑問を表す）',
+      src: '<span class="bun">夫差、而忘^三^越人之殺^二^而父^一^邪。</span>',
+      opts: [
+        { t: '夫差よ、おまえは、越の人がおまえの父を殺したことを忘れたのか。', ok: 1, why: '「而」は「汝」（おまえ）。「越人之殺而父」＝越人がおまえの父を殺したこと。「邪」は疑問の「か」。' },
+        { t: '夫差よ、そして、越の人が父を殺したことを忘れたのか。', why: '「而」を「そして」の意味の接続の字と考えた誤り。呼びかけの場面では、「汝」。' },
+        { t: '夫差よ、おまえの父が越の人を殺したことを忘れたのか。', why: '主語と目的語が逆。殺したのは「越人」、殺されたのは「而父」（＝夫差の父の闔廬）。' },
+        { t: '夫差よ、越の人がおまえの父を殺したことを、忘れてはならないぞ。', why: '「邪」は疑問（〜か）。禁止（〜するな）の意味ではない。' }
+      ],
+      exp: '「越人之殺而父」の「之」は、「越人が…殺す」と主語を示す働き。闔廬は、呉が越を攻めたときに傷を負って死んだ。夫差が「復讐を忘れるな」と自分に言わせた場面。' },
+
+    { tag: '内容理解', p: '本文で、薪の上に寝て復讐を誓った人物と、胆を嘗めて復讐を誓った人物の組み合わせとして、正しいものは？',
+      opts: [
+        { t: '薪＝夫差　　胆＝句践', ok: 1, why: '夫差は、越に父を殺されたので薪に寝た。句践は、会稽山で降伏した恥を思い出すために、胆を嘗めた。' },
+        { t: '薪＝句践　　胆＝夫差', why: '逆。呉王の夫差が薪、越王の句践が胆。' },
+        { t: '薪＝闔廬　　胆＝夫差', why: '闔廬は夫差の父。戦いで傷を負って亡くなった人で、復讐を誓った側ではない。' },
+        { t: '薪＝子胥　　胆＝句践', why: '子胥は呉の家臣で、越を許すなと夫差に反対した人。のちに自害する。薪に寝た人ではない。' }
+      ],
+      exp: '呉（夫差）＝臥薪、越（句践）＝嘗胆。先の流れの図で、呉と越の色を見分けておこう。' },
+
+    { tag: '句形：置き字', p: '次の一文は、「于」を置き字として読みます。書き下し文として正しいものは？',
+      src: '<span class="bun">夫差敗^二^越于夫椒^一^。</span>',
+      opts: [
+        { t: '夫差、越を夫椒に敗る。', ok: 1, why: '「敗」の目的語が「越」。夫差が越を破った。「于」は読まず、「夫椒」に「に」をつける。' },
+        { t: '夫差、越に夫椒に敗る。', why: '「越に」と読むと、夫差が越に負けたことになる。直後に、越王が臣下になりたいと願い出ているので、勝ったのは呉。' },
+        { t: '夫差、越の夫椒に敗る。', why: '「越の夫椒」と読むと、場所の説明になってしまい、「敗」の目的語がなくなる。「越を」と読む。' },
+        { t: '夫差、越を于夫椒敗る。', why: '置き字の「于」を読んでいる。「于」は読まない字。' }
+      ],
+      exp: '読む順は「夫差」→「越」→「夫椒」→「敗」。「敗」から先に読むのではなく、一・二点で下から返る。「于」は「於」と同じ置き字で、場所を示す。' },
+
+    { tag: '内容理解・使役', p: '「太宰伯嚭、受越賂、説夫差、赦越」で、伯嚭が果たした役割として、正しいものは？',
+      src: '<span class="bun">太宰伯嚭、受^二^越賂^一^、説^二^夫差^一^赦^レ^越。</span>',
+      opts: [
+        { t: '越の賄賂を受け取り、夫差に説いて、越を許させた。', ok: 1, why: '「説二夫差一赦レ越」は、「夫差に説きて、越を赦さしむ」。「説いて〜させる」という使役の形。' },
+        { t: '越を許してはいけないと、夫差に強く進言した。', why: 'これは子胥。子胥は、直前で「不可」（いけません）と言っている。' },
+        { t: '句践を助けて、呉の軍を破った。', why: '伯嚭は呉の家臣（太宰）。越の味方として戦ったわけではない。' },
+        { t: '子胥の死をあわれんで、江のほとりに祠を建てた。', why: '祠を建てたのは「呉人」（呉の人々）。伯嚭ではない。' }
+      ],
+      exp: '「受越賂」＝越の賄賂を受け取る。「説夫差」＝夫差を説得する。「赦越」＝越を許す。説得して許させたので、使役の意味が入っている。子胥と伯嚭の、反対の意見を押さえておく。' },
+
+    { tag: '内容理解', p: '句践が胆を嘗めながら自分に問いかけた「女忘会稽之恥邪」（おまえは会稽の恥を忘れたのか）の「会稽の恥」とは、何のことか。',
+      opts: [
+        { t: '夫椒で敗れ、会稽山に追いつめられて、夫差の臣下になりたいと願い出たこと。', ok: 1, why: '戦いに負けて降伏し、臣下になると願った屈辱が「会稽の恥」。会稽山での出来事なので、その名がついた。' },
+        { t: '夫差の父、闔廬を戦いで死なせてしまったこと。', why: '闔廬の死は、越が戦いに勝った結果。句践の恥ではなく、夫差が復讐を誓う理由。' },
+        { t: '国の政治を、大夫の種にまかせきりにしたこと。', why: '政治を種に任せたのは、会稽の恥のあと、復讐のための準備。恥ではない。' },
+        { t: '子胥を自害に追いこんでしまったこと。', why: '子胥を死に追いこんだのは夫差。時間の順でも、句践が胆を嘗め始めたのは子胥の死より前。' }
+      ],
+      exp: '「女」は「汝」と同じで、ここでは自分自身への呼びかけ。「邪」は疑問の「か」。胆を嘗めるたびに、あの屈辱を思い出す。' },
+
+    { tag: '語の意味', p: '「挙国政、属大夫種」の「属」の意味は？（「属」は「嘱」と同じ字として使われている）',
+      opts: [
+        { t: '任せる', ok: 1, why: '「国政を挙げて、大夫の種に属す」＝国の政治をすべて、種に任せた。「嘱託」の「嘱」と同じ。' },
+        { t: '従わせる', why: '「属国」の「属」（従う）と混同した誤り。ここでは、句践が種に政治を任せている。' },
+        { t: '命令する', why: '「任せる」は、命令するのとは違う。政治の仕事を信頼して預けた意味。' },
+        { t: '引き継がせる', why: '前任者から引き継ぐ話ではない。句践が自分の手で、種に任せた。' }
+      ],
+      exp: '「国政を挙げて」は、国の政治のすべてを、という意味。このあと、「而与范蠡治兵」（そして范蠡と軍の備えを整え）と続く。政治は種、軍は范蠡に分担して、復讐の準備を進めた。' },
+
+    { tag: '内容理解', p: '夫差は、恨みを口にした子胥に、「属鏤之剣」（名剣の名）を与えた。これは何を意味するか。',
+      src: '<span class="bun">夫差乃賜^二^子胥属鏤之剣^一^。</span>',
+      opts: [
+        { t: '剣で自ら命を絶てという、自害の命令。', ok: 1, why: '剣を与えられたあと、すぐ後ろに「乃自剄」（そこで自分の首を切って死んだ）とある。' },
+        { t: '長年の忠義に対する、ほうび。', why: '「賜」は与える意味だが、恨みを言った子胥へのほうびではない。直後に子胥は自害している。' },
+        { t: '越との戦いに出陣せよという命令。', why: '出陣の話は、本文に出てこない。子胥は、このあと自害する。' },
+        { t: '句践を討ち取れという命令。', why: '子胥に、句践を討てという内容は、本文にない。' }
+      ],
+      exp: '子胥は、「謀不用」（計略が用いられなかったこと）を恥じ、恨んだ。夫差はそれに怒って、剣を与えた。「乃」は「そこで」。子胥は遺言を家族に告げてから、自分で首を切って死んだ。' },
+
+    { tag: '内容理解', p: '子胥が自害の前に、家族に言い残した次の言葉で、「以観越兵之滅呉」に込められた気持ちとして、最も適当なものは？',
+      src: '<span class="bun">必樹吾墓檟、檟可材也。抉吾目、懸東門、以観越兵之滅呉。</span>',
+      opts: [
+        { t: '越の軍が呉を滅ぼすのを、死んだあとも、自分の目で見届けたい。', ok: 1, why: '「抉吾目、懸東門」＝自分の目をえぐって東門に懸けよ。「以観越兵之滅呉」＝それで、越の兵が呉を滅ぼすのを見よう（見届けよう）。' },
+        { t: '呉を守るために、目を東門に懸けて、魔よけにしたい。', why: '目を懸ける理由は「越兵が呉を滅ぼすのを観る」ため。魔よけではない。' },
+        { t: '夫差に、自分のまちがいを思い知らせて、あやまらせたい。', why: '夫差があやまるのを見たいのではない。見たいのは、「越兵が呉を滅ぼす」こと。' },
+        { t: '越の王に、自分が味方であることを知らせたい。', why: '子胥は越の味方ではない。越を許すなと言い、呉の将来を心配していた人。' }
+      ],
+      exp: '墓に植えさせる「檟」は、ひさぎ（棺の材料になる木）。越を許した夫差の判断が、国を滅ぼすことになると、子胥は見通していた。実際に、このあと越が呉を攻めて滅ぼす。' },
+
+    { tag: '内容理解', p: '「夫差上姑蘇、亦請成於越。」の「亦」（また）は、どんなことを受けた言葉か。',
+      src: '<span class="bun">夫差上^二^姑蘇^一^、亦請^二^成於越^一^。</span>',
+      opts: [
+        { t: '以前に、句践も会稽山で降伏を願ったこと。', ok: 1, why: '「亦」＝夫差も、あのときの句践と同じように。立場が逆転して、今度は夫差が越に、講和（成）を願う。' },
+        { t: '以前にも、夫差が越に講和を願ったことがあること。', why: '本文で以前に降伏を願ったのは、夫差ではなく句践のほう。' },
+        { t: '子胥も、越に講和を願ったこと。', why: '子胥はすでに自害している。講和を願うことはない。' },
+        { t: '范蠡も、夫差の講和を願ったこと。', why: '講和を願ったのは夫差。范蠡は「不可」（許さない）と、退けた側。' }
+      ],
+      exp: '句践（会稽山で臣となりたいと願う）⇔ 夫差（姑蘇山で講和を願う）。立場がまったく逆になった。ここで范蠡は、あのときの呉と同じようには許さなかった。「成」は講和。' },
+
+    { tag: '内容理解', p: '夫差は、越に許されず、「吾無以見子胥」と言って顔を布でおおい、死んだ。この言葉の気持ちとして、最も適当なものは？',
+      src: '<span class="bun">吾無^三^以見^二^子胥^一^。</span>',
+      opts: [
+        { t: '子胥の忠告を聞かなかったことを後悔し、あの世で子胥に合わせる顔がない。', ok: 1, why: '「無以〜」は「〜するすべがない」。「見」は「まみゆ」（会う）。子胥に会うことができない（合わせる顔がない）の意味。' },
+        { t: '子胥の墓がどこにあるのかわからず、あやまりに行けない。', why: '墓の場所は、本文の問題になっていない。反省の気持ちを表した言葉。' },
+        { t: '越の味方になった子胥に怒りを感じている。', why: '子胥は呉の忠臣で、越の味方ではない。夫差のほうが、子胥にあやまる立場。' },
+        { t: '戦いを助けてくれなかった子胥をうらんでいる。', why: '子胥を死に追いこんだのは夫差自身。うらむのではなく、後悔している。' }
+      ],
+      exp: '「吾、以て子胥に見ゆる無し」。顔を布でおおったのも、子胥に顔向けできないことを表している。子胥の「越を許すな」の忠告に従わなかったことが、呉の滅亡につながった。' }
+  ];
+
+  /* ---------- クイズ本体 ---------- */
+  var quiz = document.getElementById('quiz');
+  var S = { i: 0, order: [], sel: null, results: [] };
+  var BEST = 'kokugo-gashin-best1';
+  function loadBest() { try { return Number(localStorage.getItem(BEST)) || 0; } catch (e) { return 0; } }
+  function saveBest(n) { try { if (n > loadBest()) localStorage.setItem(BEST, String(n)); } catch (e) {} }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var MARKS = ['ア', 'イ', 'ウ', 'エ'];
+
+  function qHtml(q) {
+    return '<span class="tag">' + q.tag + '</span><p class="p">' + fmt(q.p) + '</p>' + (q.src ? '<div class="src">' + fmt(q.src) + '</div>' : '');
+  }
+  function show() {
+    if (S.i >= Q.length) return result();
+    var q = Q[S.i], ord = S.order[S.i], answered = S.sel !== null;
+    var h = '<div class="qhead"><span>問 ' + (S.i + 1) + ' / ' + Q.length + '</span><span></span></div>' +
+      '<div class="bar"><i style="width:' + Math.round((S.i + (answered ? 1 : 0)) / Q.length * 100) + '%"></i></div><div class="q">' + qHtml(q);
+    h += '<div class="opts">' + ord.map(function (oi, k) {
+      var o = q.opts[oi];
+      if (!answered) return '<button type="button" class="opt" data-k="' + oi + '"><span class="mk">' + MARKS[k] + '</span><span>' + fmt(o.t) + '</span></button>';
+      var cls = 'optr ' + (o.ok ? 'ok' : 'ng') + (S.sel === oi ? ' picked' : '');
+      return '<div class="' + cls + '"><span class="mk">' + (o.ok ? '○' : '×') + '</span><span>' + fmt(o.t) + (S.sel === oi ? '<span class="you">▲ あなたの答え</span>' : '') + '</span><span class="why">' + fmt(o.why) + '</span></div>';
+    }).join('') + '</div>';
+    if (answered) {
+      var good = !!q.opts[S.sel].ok;
+      h += '<p class="verdict ' + (good ? 'ok' : 'ng') + '">' + (good ? '○ 正解！' : '× ざんねん。正解は ○ のところ。') + '</p>' +
+        '<div class="exp"><b>解説</b><br>' + fmt(q.exp) + '</div>' +
+        '<button type="button" class="btn" id="next">' + (S.i + 1 < Q.length ? '次の問題へ' : '結果を見る') + '</button>';
+    }
+    quiz.innerHTML = h + '</div>';
+  }
+  function result() {
+    var n = S.results.filter(Boolean).length; saveBest(n);
+    quiz.innerHTML = '<div class="q score"><p>おつかれさま！</p><div class="n">' + n + ' / ' + Q.length + '</div><p>まちがえた問題は、「全問題を答えつきで見る」で、選択肢ごとの理由を読み返そう。</p>' +
+      '<p style="color:var(--muted);font-size:.9rem">これまでのベスト：' + loadBest() + ' / ' + Q.length + '</p><button type="button" class="btn" id="again">もう一度やる</button></div>';
+  }
+  function start() { S.i = 0; S.sel = null; S.results = []; S.order = Q.map(function (q) { return shuffle(q.opts.map(function (_, i) { return i; })); }); show(); }
+
+  quiz.addEventListener('click', function (e) {
+    var t = e.target.closest('button'); if (!t) return;
+    if (t.classList.contains('opt')) { var q = Q[S.i]; S.sel = Number(t.getAttribute('data-k')); S.results[S.i] = !!q.opts[S.sel].ok; show(); var v = quiz.querySelector('.verdict'); if (v && v.scrollIntoView) { try { v.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (er) {} } }
+    else if (t.id === 'next') { S.i++; S.sel = null; show(); window.scrollTo(0, quiz.offsetTop - 40); }
+    else if (t.id === 'again') { start(); window.scrollTo(0, quiz.offsetTop - 40); }
+  });
+
+  /* ---------- 一覧で確認 ---------- */
+  var rev = document.getElementById('rev'), revbtn = document.getElementById('revbtn');
+  function reviewHtml() {
+    return Q.map(function (q, qi) {
+      return '<div class="q revq"><h3>問 ' + (qi + 1) + '</h3>' + qHtml(q) + '<div class="opts">' + q.opts.map(function (o, k) {
+        return '<div class="optr ' + (o.ok ? 'ok' : 'ng') + '"><span class="mk">' + (o.ok ? '○' : '×') + '</span><span>' + fmt(o.t) + '</span><span class="why">' + fmt(o.why) + '</span></div>';
+      }).join('') + '</div><div class="exp"><b>解説</b><br>' + fmt(q.exp) + '</div></div>';
+    }).join('');
+  }
+  revbtn.addEventListener('click', function () {
+    var open = rev.hidden;
+    if (open) { rev.innerHTML = reviewHtml(); rev.hidden = false; revbtn.textContent = '一覧をとじる'; }
+    else { rev.hidden = true; revbtn.textContent = '全問題を答えつきで見る（確認用）'; }
+  });
+
+  start();
+})();
+</script>
+<!-- 連続日数（毎日の学習記録）。端末内（localStorage）だけに保存 -->
+<script>
+(function () {
+  try {
+    var SKEY = 'hh-streak-v1', CLICK = true;
+    function ymd(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+    function today() { return ymd(new Date()); }
+    function yesterday() { var d = new Date(); d.setDate(d.getDate() - 1); return ymd(d); }
+    function load() { try { return JSON.parse(localStorage.getItem(SKEY)) || { last: '', n: 0, max: 0 }; } catch (e) { return { last: '', n: 0, max: 0 }; } }
+    function mark() {
+      try {
+        var st = load(), t = today();
+        if (st.last === t) return;
+        st.n = (st.last === yesterday()) ? st.n + 1 : 1;
+        st.last = t; st.max = Math.max(st.max || 0, st.n);
+        localStorage.setItem(SKEY, JSON.stringify(st));
+      } catch (e) {}
+    }
+    function html() {
+      var st = load(), t = today(), msg, sub = '', on = false;
+      if (st.last === t) { on = true; msg = '🔥 ' + st.n + '日連続で頑張ってるよ！'; if (st.max > st.n) sub = 'これまででいちばん長いのは ' + st.max + '日'; }
+      else if (st.last === yesterday()) { on = true; msg = '🔥 きのうまで ' + st.n + '日連続！'; sub = '今日も1問やると、連続がのびるよ'; }
+      else if (st.max > 0) { msg = 'おかえり！今日からまた、はじめよう'; sub = 'これまででいちばん長いのは ' + st.max + '日。休んでもだいじょうぶ'; }
+      else { msg = '今日の1問から、はじめよう'; sub = '毎日1問でもOK。続けた日数がここに出るよ'; }
+      return '<div class="hh-streak' + (on ? ' on' : '') + '">' + msg + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
+    }
+    function ensureStyle() {
+      if (document.getElementById('hh-streak-css')) return;
+      var s = document.createElement('style'); s.id = 'hh-streak-css';
+      s.textContent = '#hh-streak{box-sizing:border-box;max-width:760px;margin:8px auto;padding:0 12px;font-family:inherit}' +
+        '#hh-streak .hh-streak{padding:9px 14px;border-radius:12px;border:2px solid #cfd8d3;background:#fff;color:#223;font-weight:700;line-height:1.6;font-size:.95rem;text-align:center}' +
+        '#hh-streak .hh-streak small{display:block;font-weight:400;color:#556;font-size:.8rem}' +
+        '#hh-streak .hh-streak.on{border-color:#e8a33d;background:#fff7e6;color:#3a2a00}' +
+        '#hh-streak .hh-streak.on small{color:#6b5a30}';
+      (document.head || document.documentElement).appendChild(s);
+    }
+    function render() {
+      if (!document.body) return;
+      ensureStyle();
+      var e = document.getElementById('hh-streak');
+      if (!e) { e = document.createElement('div'); e.id = 'hh-streak'; document.body.insertBefore(e, document.body.firstChild); }
+      e.innerHTML = html();
+    }
+    window.hhStudied = function () { mark(); render(); };
+    if (CLICK) {
+      document.addEventListener('click', function (ev) {
+        var t = ev.target;
+        if (t && t.closest && t.closest('.opt, .choice, [data-act="pick"], [data-act="check"]')) window.hhStudied();
+      }, true);
+    }
+    render();
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
