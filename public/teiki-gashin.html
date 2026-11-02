@@ -61,6 +61,7 @@ ruby rt { font-size: .5em; font-weight: 400; color: var(--muted); }
   .mapsvg .m-t-chu { fill: #FF9D9D; } .mapsvg .m-t-go { fill: #9DB4FF; } .mapsvg .m-t-etsu { fill: #7BE0A8; }
   .mapsvg .m-lbl, .mapsvg .m-city-t { stroke: #1A2231; } .mapsvg .m-lbl { fill: #8EC4F2; } .mapsvg .m-city-t { fill: #D5DBE6; } .mapsvg .m-city { fill: #D5DBE6; }
 }
+.tr p { margin: 0 0 .9em; } .tr p:last-child { margin-bottom: 0; } .tr .yr { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 0 10px; margin-right: 6px; }
 .legend { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 4px; font-size: .92rem; }
 .legend li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; }
 .legend .n { background: #C0392B; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; font-weight: 700; font-size: .85rem; line-height: 24px; }
@@ -218,7 +219,10 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
   <h2>④ 先に確認：この話に出る句形</h2>
   <div class="kei" id="kei"></div>
 
-  <h2>⑤ 問題</h2>
+  <h2>⑤ 全訳（まず通して読もう）</h2>
+  <div class="box tr" id="tr"></div>
+
+  <h2>⑥ 問題</h2>
   <div id="quiz"></div>
   <button class="btn sub" id="revbtn" type="button">全問題を答えつきで見る（確認用）</button>
   <div id="rev" hidden></div>
@@ -258,7 +262,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
   /* ---------- ① 流れの図 ---------- */
   var FLOW = [
-    ['go', '呉', '前496年', '呉が越を攻め、呉王の闔廬が傷を負って死ぬ。子の夫差が王になる。夫差は<b class="key">薪の上に寝て</b>（臥薪）、復讐を誓う。さらに、部屋を出入りするたびに、家来に「夫差よ、越の人がおまえの父を殺したことを忘れたか」と大声で言わせ（＝自分に呼びかけさせ）、そのたびに「忘れていないぞ」と答えた。'],
+    ['go', '呉', '前496年', '呉が越を攻め、呉王の闔廬が傷を負って死ぬ。子の夫差が王になる。夫差は<b class="key">薪の上に寝て</b>（臥薪）、復讐を誓う。さらに、部屋を出入りするたびに、家来に「夫差よ、越の人がおまえの父を殺したことを忘れたか」と大声で言わせ（＝自分に呼びかけさせ）。'],
     ['go', '呉', '前494年', '<b class="key">夫椒の戦い</b>。夫差が越を破る。'],
     ['etsu', '越', '', '越王の句践は、残った兵で会稽山にたてこもり、呉王の夫差に向かって「あなたの家臣になります。妻も、あなたの召し使いにします」と願い出て、降伏して許しを求める。（<b class="key">会稽の恥</b>）'],
     ['both', '呉', '', '子胥は「許してはいけない」と反対。しかし太宰の伯嚭は、越から賄賂を受け取り、夫差を説いて越を許させる。'],
@@ -269,6 +273,19 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
   ];
   document.getElementById('flow').innerHTML = FLOW.map(function (f) {
     return '<li class="' + f[0] + '"><span class="who">' + f[1] + '</span><div class="txt">' + (f[2] ? '<span class="yr">' + f[2] + '</span>' : '') + fmt(f[3]) + '</div></li>';
+  }).join('');
+
+  /* ---------- 全訳 ---------- */
+  var TR = [
+    ['', '闔廬は伍員を取り立てて、国の政治を相談した。員は楚の人、伍奢の子である。奢が殺されたので、員は呉へ逃れてきた。（のちに）呉の兵を率いて楚の都の郢に攻め入った。呉が越を攻めたとき、闔廬は傷を負って死んだ。子の夫差が王に立った。夫差は復讐を心に決め、朝も夕も薪の中に寝た。部屋を出入りするたびに、人に呼びかけさせて言わせた。「夫差よ、おまえは、越の人がおまえの父を殺したことを忘れたのか。」'],
+    ['周の敬王26年（前494年）', '夫差は夫椒で越を破った。越王の句践は、残った兵で会稽山にたてこもり、（夫差に）臣下になりたいと願い出て、妻も召し使いにしたいと申し出た。子胥は「いけません（許してはなりません）」と言った。太宰の伯嚭は、越の賄賂を受け取り、夫差を説いて越を許させた。'],
+    ['', '句践は国に帰ると、胆を座る所にも寝る所にも懸け、座るたびに胆を仰いで嘗めては、「おまえは会稽の恥を忘れたのか」と言った。国の政治はすべて大夫の種に任せ、自分は范蠡とともに軍を整え、呉を討つことを計画して事を進めた。'],
+    ['', '太宰の伯嚭は、子胥のことを悪く言った。子胥は、自分の計略が用いられないのを恥じ、うらんだ。夫差はそこで、子胥に属鏤の剣を与えた。子胥は家の者に告げて言った。「必ず私の墓に檟を植えよ。檟は（のちに棺の）材木にできるからだ。私の目をえぐり取って東門に懸けよ。越の兵が呉を滅ぼすのを見るためだ。」そして自分で首をはねて死んだ。夫差はその遺体を取り上げ、鴟夷（皮の袋）に入れて、江に投げ込んだ。呉の人々はこれをあわれに思い、江のほとりに祠を立て、「胥山」と名づけた。'],
+    ['', '越は十年間、人口と財産を増やし、さらに十年間、民を教え軍事の訓練をした。'],
+    ['周の元王4年（前473年）', '越が呉を攻めた。呉は三度戦って、三度とも負けて逃げた。夫差は姑蘇山に登り、また（かつての句践のように）越に講和を願い出た。范蠡は許さなかった。夫差は言った。「私には、子胥に会わせる顔がない。」そこで布で顔をおおって死んだ。']
+  ];
+  document.getElementById('tr').innerHTML = TR.map(function (t) {
+    return '<p>' + (t[0] ? '<span class="yr">' + t[0] + '</span>' : '') + fmt(t[1]) + '</p>';
   }).join('');
 
   /* ---------- ② 人物 ---------- */
