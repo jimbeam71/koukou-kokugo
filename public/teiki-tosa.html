@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>土佐日記｜古文 定期テスト対策</title>
+<meta name="description" content="紀貫之『土佐日記』（馬のはなむけ・帰京）の定期テスト対策。本質の解説、文法の整理、選択肢ごとの解説つき問題。">
+<style>
+:root {
+  --bg: #EEF1F5; --card: #FFFFFF; --ink: #18212F; --muted: #566176; --line: #D3D9E3;
+  --mark: #2A4FC4; --mark-soft: #E1E8FB; --on-mark: #FFFFFF;
+  --ok: #18794E; --ok-soft: #DDF2E7; --ng: #B93232; --ng-soft: #FBE3E3;
+  --go: #2A4FC4; --etsu: #18794E; --go-soft: #E1E8FB; --etsu-soft: #DDF2E7;
+  --warm: #B8741A; --warm-soft: #FFF3DE; --warm-line: #E8B766;
+  --f-han: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", serif;
+  --f-ui: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111723; --card: #1A2231; --ink: #E7ECF4; --muted: #9AA5B9; --line: #2D3749;
+    --mark: #8FA9FF; --mark-soft: #25314F; --on-mark: #0C1220;
+    --ok: #62D29A; --ok-soft: #153A2A; --ng: #FF9393; --ng-soft: #43212B;
+    --go: #8FA9FF; --etsu: #62D29A; --go-soft: #25314F; --etsu-soft: #153A2A;
+    --warm: #F0B864; --warm-soft: #3A2D16; --warm-line: #8A6628;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-ui); line-height: 1.8; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 14px 16px 56px; }
+.back { display: inline-block; text-decoration: none; color: var(--mark); font-weight: 700; padding: 6px 0; }
+.eyebrow { font-size: .85rem; letter-spacing: .12em; color: var(--muted); font-weight: 700; margin: 8px 0 0; }
+h1 { font-family: var(--f-han); font-size: 1.9rem; line-height: 1.35; margin: 2px 0 6px; }
+.lead { color: var(--muted); margin: 0 0 14px; }
+h2 { font-family: var(--f-han); font-size: 1.3rem; margin: 30px 0 10px; }
+.box { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px 16px; margin: 10px 0; }
+ruby rt { font-size: .5em; font-weight: 400; color: var(--muted); }
+.bun { font-family: var(--f-han); font-size: 1.3rem; }
+.q .src { display: flex; justify-content: center; padding: 14px 12px; overflow-x: auto; }
+.src .bun { writing-mode: vertical-rl; max-height: 11em; line-height: 2.4; letter-spacing: .05em; }
+.src .bun .c { position: relative; display: inline-block; line-height: 1; }
+.src .bun .c .k { position: absolute; left: -1em; bottom: -.1em; margin: 0; font-size: .55em; line-height: 1; vertical-align: baseline; writing-mode: horizontal-tb; white-space: nowrap; }
+.src .bun .c .k + .k { bottom: .55em; }
+/* 地図 */
+.mapbox { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 10px; }
+.mapsvg { display: block; width: 100%; height: auto; }
+.mapsvg .m-sea { fill: #CFE3F2; } .mapsvg .m-land { fill: #F1EAD8; }
+.mapsvg .m-chu { fill: #E08A8A; fill-opacity: .35; } .mapsvg .m-go { fill: #4F7FD6; fill-opacity: .35; } .mapsvg .m-etsu { fill: #3FA56B; fill-opacity: .38; }
+.mapsvg .m-lake { fill: #9CC9EA; } .mapsvg .m-river { fill: none; stroke: #3F86C6; stroke-width: 4; stroke-linecap: round; }
+.mapsvg .m-state { font-family: var(--f-han); font-size: 50px; font-weight: 700; text-anchor: middle; }
+.mapsvg .m-t-chu { fill: #A83C3C; } .mapsvg .m-t-go { fill: #2A4FC4; } .mapsvg .m-t-etsu { fill: #18794E; }
+.mapsvg .m-lbl, .mapsvg .m-city-t { font-family: var(--f-ui); font-size: 22px; font-weight: 700; paint-order: stroke; stroke: #F8F4E8; stroke-width: 4px; }
+.mapsvg .m-lbl { fill: #2C6EA8; } .mapsvg .m-city-t { fill: #4A4A4A; }
+.mapsvg .m-lake-t { text-anchor: middle; }
+.mapsvg .m-city { fill: #555; }
+.mapsvg .m-pin circle { fill: #C0392B; stroke: #fff; stroke-width: 2; } .mapsvg .m-pin text { fill: #fff; font-family: var(--f-ui); font-size: 19px; font-weight: 700; text-anchor: middle; }
+.mapsvg .m-frame { fill: none; stroke: var(--line); stroke-width: 2; }
+@media (prefers-color-scheme: dark) {
+  .mapsvg .m-sea { fill: #1B3550; } .mapsvg .m-land { fill: #3A3A33; } .mapsvg .m-lake { fill: #2D5B84; } .mapsvg .m-river { stroke: #6FB2EA; }
+  .mapsvg .m-t-chu { fill: #FF9D9D; } .mapsvg .m-t-go { fill: #9DB4FF; } .mapsvg .m-t-etsu { fill: #7BE0A8; }
+  .mapsvg .m-lbl, .mapsvg .m-city-t { stroke: #1A2231; } .mapsvg .m-lbl { fill: #8EC4F2; } .mapsvg .m-city-t { fill: #D5DBE6; } .mapsvg .m-city { fill: #D5DBE6; }
+}
+.tr p { margin: 0 0 .9em; } .tr p:last-child { margin-bottom: 0; } .tr .yr { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 0 10px; margin-right: 6px; }
+/* 本質 */
+.core { background: var(--warm-soft); border: 2px solid var(--warm-line); border-radius: 16px; padding: 14px 16px; }
+.core p { margin: 0 0 .6em; } .core p:last-child { margin-bottom: 0; }
+.core .big { font-family: var(--f-han); font-size: 1.15rem; font-weight: 700; }
+.teams { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+.team { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; font-size: .92rem; line-height: 1.6; }
+.team h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.team.go { border-top: 6px solid var(--go); } .team.etsu { border-top: 6px solid var(--etsu); }
+.team.go h3 { color: var(--go); } .team.etsu h3 { color: var(--etsu); }
+.team b { display: block; } .team span.sub { color: var(--muted); font-size: .85rem; }
+.tl { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 12px 14px; margin: 10px 0; }
+.tl .row { margin: 8px 0; } .tl .lab { font-size: .85rem; font-weight: 700; margin-bottom: 2px; }
+.tl .track { display: flex; height: 30px; border-radius: 8px; overflow: hidden; background: var(--bg); }
+.tl .seg { display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
+.tl .seg.go { background: #2A4FC4; } .tl .seg.etsu { background: #18794E; } .tl .seg.gray { background: #8A93A6; } .tl .seg.red { background: #B93232; }
+@media (prefers-color-scheme: dark) { .tl .seg.go { background: #4A68C8; } .tl .seg.etsu { background: #2E8F62; } }
+.tl .ax { display: flex; justify-content: space-between; font-size: .78rem; color: var(--muted); font-weight: 700; margin-top: 4px; }
+.qa { display: grid; gap: 10px; margin: 10px 0; }
+.qa .item { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; }
+.qa .qq { font-weight: 700; margin: 0 0 4px; } .qa .qq::before { content: "Q. "; color: var(--mark); }
+.qa p { margin: 0 0 .5em; } .qa p:last-child { margin-bottom: 0; }
+.qa .mine { font-size: .85rem; color: var(--muted); }
+.tr .who { display: inline-block; font-size: .75rem; font-weight: 700; border-radius: 999px; padding: 0 9px; margin-right: 4px; }
+.tr .who.go { color: var(--go); background: var(--go-soft); } .tr .who.etsu { color: var(--etsu); background: var(--etsu-soft); }
+.memo { background: var(--mark-soft); border: 2px solid var(--mark); border-radius: 16px; padding: 12px 16px; margin: 12px 0; }
+.memo .big2 { font-family: var(--f-han); font-weight: 700; font-size: 1.05rem; margin: 0 0 6px; }
+.memo p { margin: 6px 0 0; font-size: .95rem; }
+.yomi { margin: 0 0 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--warm-line); }
+.yomi .yo { font-family: var(--f-han); font-size: 1.1rem; font-weight: 700; }
+.legend { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 4px; font-size: .92rem; }
+.legend li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; }
+.legend .n { background: #C0392B; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; font-weight: 700; font-size: .85rem; line-height: 24px; }
+.mapnote { font-size: .85rem; color: var(--muted); margin: 8px 0 0; }
+.bun .k, .k { font-family: var(--f-ui); font-style: normal; font-size: .88em; vertical-align: -.3em; margin: 0 .1em 0 .05em; color: var(--mark); font-weight: 700; letter-spacing: 0; }
+/* 流れの図 */
+.flow { list-style: none; margin: 0; padding: 0; }
+.flow li { position: relative; display: grid; grid-template-columns: 64px 1fr; gap: 10px; padding: 0 0 14px; }
+.flow li:not(:last-child)::before { content: ""; position: absolute; left: 31px; top: 34px; bottom: 0; border-left: 3px dotted var(--line); }
+.flow .who { align-self: start; justify-self: center; width: 52px; text-align: center; font-weight: 700; font-size: .85rem; border-radius: 999px; padding: 3px 0; border: 2px solid; background: var(--card); position: relative; z-index: 1; }
+.flow .go .who { color: var(--go); border-color: var(--go); background: var(--go-soft); }
+.flow .etsu .who { color: var(--etsu); border-color: var(--etsu); background: var(--etsu-soft); }
+.flow .both .who { color: var(--warm); border-color: var(--warm-line); background: var(--warm-soft); }
+.flow .yr { display: block; font-size: .78rem; color: var(--muted); font-weight: 700; }
+.flow .txt { background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.flow .go .txt { border-left: 6px solid var(--go); }
+.flow .etsu .txt { border-left: 6px solid var(--etsu); }
+.flow .both .txt { border-left: 6px solid var(--warm-line); }
+.flow b.key { color: var(--warm); }
+/* 人物表 */
+table.ppl { width: 100%; border-collapse: collapse; font-size: .95rem; }
+table.ppl th, table.ppl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.ppl th { white-space: nowrap; font-weight: 700; }
+.tg { display: inline-block; font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 0 8px; margin-right: 4px; }
+.tg.go { color: var(--go); background: var(--go-soft); } .tg.etsu { color: var(--etsu); background: var(--etsu-soft); } .tg.both { color: var(--warm); background: var(--warm-soft); }
+/* 句形の図解 */
+.kei { display: grid; gap: 10px; }
+.kei .item { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; }
+.kei h3 { margin: 0 0 6px; font-size: 1rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+.chip { background: var(--mark-soft); color: var(--mark); border-radius: 8px; padding: 2px 10px; font-weight: 700; font-family: var(--f-han); }
+.arrow { color: var(--muted); font-weight: 700; }
+.kei p { margin: 4px 0 0; font-size: .92rem; color: var(--muted); }
+/* クイズ */
+.qhead { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+.bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; margin-bottom: 12px; }
+.bar i { display: block; height: 100%; background: var(--mark); }
+.q { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 16px; }
+.q .tag { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 0 10px; }
+.q .p { margin: 8px 0 8px; font-weight: 700; }
+.q .src { margin: 8px 0 12px; background: var(--bg); border-radius: 10px; border-left: 4px solid var(--line); }
+.opts { display: grid; gap: 8px; margin-top: 10px; }
+button.opt, .optr {
+  display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start; text-align: left; width: 100%;
+  font: inherit; color: inherit; background: var(--card); border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px; min-height: 48px;
+}
+button.opt { cursor: pointer; }
+button.opt:hover, button.opt:focus-visible { border-color: var(--mark); outline: none; }
+.mk { font-weight: 700; color: var(--muted); text-align: center; }
+.optr .why { grid-column: 2; font-size: .9rem; color: var(--muted); margin-top: 2px; }
+.optr.ok { border-color: var(--ok); background: var(--ok-soft); } .optr.ok .mk { color: var(--ok); }
+.optr.ng.picked { border-color: var(--ng); background: var(--ng-soft); } .optr.ng.picked .mk { color: var(--ng); }
+.optr .you { display: block; font-size: .78rem; font-weight: 700; margin-top: 2px; color: var(--muted); }
+.exp { margin-top: 12px; padding: 10px 14px; border-radius: 12px; background: var(--warm-soft); border: 2px solid var(--warm-line); }
+.exp b { color: var(--warm); }
+.verdict { font-weight: 700; margin: 12px 0 0; font-size: 1.05rem; }
+.verdict.ok { color: var(--ok); } .verdict.ng { color: var(--ng); }
+button.btn { font: inherit; font-weight: 700; cursor: pointer; border: 0; border-radius: 12px; background: var(--mark); color: var(--on-mark); padding: 12px 18px; min-height: 48px; width: 100%; margin-top: 12px; }
+button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid var(--mark); }
+.score { text-align: center; padding: 20px 10px; }
+.score .n { font-family: var(--f-han); font-size: 2.6rem; font-weight: 700; }
+.revq { margin: 14px 0; }
+.revq h3 { font-size: 1rem; margin: 0 0 6px; }
+.note { margin-top: 26px; font-size: .85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="teiki.html">← 定期テスト対策</a>
+  <p class="eyebrow">古文　紀貫之『土佐日記』</p>
+  <h1>土佐日記</h1>
+  <p class="lead">「馬のはなむけ」と「帰京」の2場面です。まず「結局どういう話か」をつかんでから、文法と問題へ進もう。</p>
+
+  <h2>① 結局、どういう話？</h2>
+  <div class="core">
+    <p class="big">にぎやかな旅の記録は、帰ってこない娘への悲しみで終わる。</p>
+    <p>①作者（紀貫之）は、土佐の国司の任期を終えて、見送りの人たちと別れて京へ出発する　→　②約2か月の船旅のすえ、京の家にたどり着く。でも、家はボロボロ　→　③いちばんつらいのは、<b>この家で生まれた娘が、いっしょに帰れないこと</b>。</p>
+    <p>しかも作者は男なのに、<b>「女が書いている」ふりをして、仮名で</b>書いている。これが『土佐日記』のいちばんの特徴。</p>
+  </div>
+  <div class="memo">
+    <p class="big2">覚え方：「なり」は、上の形で見分ける</p>
+    <div class="chips"><span class="chip">す＋なる</span><span class="arrow">→</span><span class="chip">伝聞（〜という）</span><span class="arrow">／</span><span class="chip">する＋なり</span><span class="arrow">→</span><span class="chip">断定（〜である）</span></div>
+    <p>「男もすなる日記」の「す」は終止形（する）。終止形につく「なり」は、伝聞・推定。「女もしてみむとて、するなり」の「する」は連体形。連体形につく「なり」は、断定。冒頭の一文に、両方のパターンが入っている。</p>
+  </div>
+  <div class="qa">
+    <div class="item"><p class="qq">なぜ、男なのに女のふりをして書いたの？</p><p>当時、男の日記は、漢文で書く「仕事の記録」だった。仮名は、女性が使う文字。作者は、仮名を使うことで、役所の記録ではなく、自分の気持ちや、旅のおかしさ・悲しさを、自由に書きたかった、と考えられている。</p><p class="mine">※定説のひとつ。本文の「女もしてみむとて」から読み取れる、いちばん大事なポイントです。</p></div>
+    <div class="item"><p class="qq">娘のことは、はっきり書いてあるの？</p><p>この2場面では、「この家にて生まれし女子の、もろともに帰らねば」と、一度だけ出てくる。「亡くなった」とは書かず、悲しさは、二首の和歌に込められている。作者は土佐で娘を亡くしていて、その悲しみが、帰京の場面でいっきにあふれ出す。</p></div>
+    <div class="item"><p class="qq">家を預かった人に、怒ってるの？</p><p>腹は立っているが、「お礼はちゃんとするつもり」と書いている。夜に大声で文句を言わせないのも、これからも付き合いを続けるための、気づかい。「怒り」より「大人の対応」を読み取ろう。</p></div>
+    <div class="item"><p class="qq">最後の「破ってしまおう」ってどういうこと？</p><p>悲しみや悔しさは、いくら書いても書き尽くせない。だから、「ともかく、早く（この日記を）破り捨ててしまおう」と、投げ出すように終わる。それだけ、娘への思いが深い、ということ。</p><p class="mine">※ここは解釈です。先生の説明があれば、そちらを優先してください。</p></div>
+  </div>
+
+  <h2>② 流れをつかむ</h2>
+  <ol class="flow" id="flow"></ol>
+
+  <h2>③ 人物を整理する</h2>
+  <div class="box" id="ppl"></div>
+
+  <h2>④ 先に確認：この話に出る文法</h2>
+  <div class="kei" id="kei"></div>
+
+  <h2>⑤ 原文と、話し言葉の訳</h2>
+  <div class="box tr" id="tr"></div>
+
+  <h2>⑥ 問題</h2>
+  <div id="quiz"></div>
+  <button class="btn sub" id="revbtn" type="button">全問題を答えつきで見る（確認用）</button>
+  <div id="rev" hidden></div>
+
+  <p class="note">この問題は、教科書の内容を参考に、自分の言葉で作り直したものです。学校のテストでは、教科書の本文・語注・授業のノートもあわせて確認してください。</p>
+</main>
+
+<script>
+(function () {
+  /* ---------- 読み（ふりがな）：各文字列の最初の1回だけ付ける ---------- */
+  var RB = [
+    ['紀貫之', 'きのつらゆき'], ['県', 'あがた'], ['解由', 'げゆ'], ['門出', 'かどいで'], ['藤原', 'ふぢはら'], ['和泉', 'いづみ'],
+    ['潮海', 'しほうみ'], ['中垣', 'なかがき'], ['声高', 'こわだか'], ['女子', 'をんなご'], ['船人', 'ふなびと'], ['戌', 'いぬ'], ['願', 'ぐわん']
+  ];
+  function ruby(s) {
+    return s.split(/(<span class="bun">.*?<\/span>)/).map(function (seg) {
+      if (seg.indexOf('<span class="bun">') === 0) return seg;
+      RB.forEach(function (r) {
+        var i = seg.indexOf(r[0]); if (i < 0) return;
+        var h = r[1].indexOf('<') === 0 ? r[1] : '<ruby>' + r[0] + '<rt>' + r[1] + '</rt></ruby>';
+        seg = seg.slice(0, i) + h + seg.slice(i + r[0].length);
+      });
+      return seg;
+    }).join('');
+  }
+  function vert(s) {
+    return s.replace(/<span class="bun">(.*?)<\/span>/g, function (m, t) {
+      return '<span class="bun">' + t.replace(/([^\^])((?:\^[一二三上中下レ]+\^)+)/g, function (mm, ch, ks) {
+        return '<span class="c">' + ch + ks.replace(/\^([一二三上中下レ]+)\^/g, '<i class="k">$1</i>') + '</span>';
+      }) + '</span>';
+    });
+  }
+  function fmt(s) { return vert(ruby(s)).replace(/\^([一二三上中下レ]+)\^/g, '<i class="k">$1</i>'); }
+  function esc(s) { return String(s); }
+
+  /* ---------- ① 流れ ---------- */
+  var FLOW = [["go", "出発", "12月21日", "国司の任期を終えた作者（紀貫之）が、住んでいた官舎を出て、船に乗る場所へ移る。見送りの人たちと別れを惜しんで、夜がふける。"], ["go", "送別", "12月22日", "和泉国までの無事を祈る。藤原のときざねが<b class=\"key\">「馬のはなむけ」</b>（送別の宴）を開く。みな酔って、ふざけ合う。"], ["etsu", "船旅", "約2か月", "船で、土佐から京へ。（この間の出来事は、日記の中ほどに書かれている）"], ["etsu", "帰京", "2月16日夜", "京に着いて、うれしい。家に入ると、月明かりのおかげで、荒れた様子がよく見える。"], ["both", "家", "", "家を預けた人の心も、荒れていた。それでも、お礼はするつもり。"], ["both", "松", "", "池のそばの松は、半分枯れて、新しい松が混じる。<b class=\"key\">「この家で生まれた女の子」</b>が帰らないことを思い、悲しみがあふれる。"], ["both", "歌", "", "こらえきれず、親しい人にこっそり<b class=\"key\">二首の和歌</b>を詠む。"], ["both", "結び", "", "悲しみは書き尽くせない。「ともかく、早く破ってしまおう」と日記を終える。"]];
+  document.getElementById('flow').innerHTML = FLOW.map(function (f) {
+    return '<li class="' + f[0] + '"><span class="who">' + f[1] + '</span><div class="txt">' + (f[2] ? '<span class="yr">' + f[2] + '</span>' : '') + fmt(f[3]) + '</div></li>';
+  }).join('');
+
+  /* ---------- ② 人物 ---------- */
+  var PPL = [["go", "作者", "紀貫之", "土佐の国司。女のふりをして、仮名で日記を書く。本文では「ある人」と書かれる。"], ["etsu", "家族", "亡き娘", "この家で生まれた女の子。土佐で亡くなり、いっしょに帰れない。"], ["go", "送別", "藤原のときざね", "船出の前に、「馬のはなむけ」（送別の宴）をしてくれた人。"], ["etsu", "同行", "船人たち", "同じ船で帰ってきた人々。帰京のうれしさで、にぎやかに騒ぐ。"], ["both", "留守", "家を預けた人", "荒れ果てた家を管理していた隣人。作者は、薄情だと思いつつ、お礼はするつもり。"], ["go", "友", "心知れる人", "心の通じ合う親しい人。作者が、二首の和歌を詠み聞かせる相手。"]];
+  document.getElementById('ppl').innerHTML = '<table class="ppl"><tbody>' + PPL.map(function (p) {
+    return '<tr><th><span class="tg ' + p[0] + '">' + p[1] + '</span>' + fmt(p[2]) + '</th><td>' + fmt(p[3]) + '</td></tr>';
+  }).join('') + '</tbody></table>';
+
+  /* ---------- ③ 文法 ---------- */
+  document.getElementById('kei').innerHTML = [["① 「なり」の見分け", "<div class=\"chips\"><span class=\"chip\">終止形＋なり</span><span class=\"arrow\">→</span><span class=\"chip\">伝聞・推定</span></div><div class=\"chips\"><span class=\"chip\">連体形・体言＋なり</span><span class=\"arrow\">→</span><span class=\"chip\">断定</span></div><p>「男もすなる日記」＝伝聞（男も書くという）。「〜するなり」＝断定（〜のである）。<br>「荒れたるなりけり」の「なり」は断定で、あとに「けり」がつき、「〜だったのだなあ」（気づき）。</p>"], ["② 「む」「てむ」＝意志", "<div class=\"chips\"><span class=\"chip\">してみむ</span><span class=\"arrow\">→</span><span class=\"chip\">しよう（意志）</span></div><div class=\"chips\"><span class=\"chip\">破りてむ</span><span class=\"arrow\">→</span><span class=\"chip\">破ってしまおう</span></div><p>主語が「私」のとき、「む」は意志。「てむ」は、完了「つ」の未然形＋「む」で、「きっと〜しよう」「〜してしまおう」。</p>"], ["③ 係り結びと「こそ〜已然形」", "<div class=\"chips\"><span class=\"chip\">なむ</span><span class=\"arrow\">→</span><span class=\"chip\">連体形</span><span class=\"arrow\">／</span><span class=\"chip\">こそ</span><span class=\"arrow\">→</span><span class=\"chip\">已然形</span></div><p>「中垣<b>こそ</b>あれ、ひとつ家のやうなれば」＝「こそ〜已然形」の下に文が続くと、逆接（〜けれど）になる。<br>「年ごろよく比べつる人々<b>なむ</b>、別れ難く思ひて…<b>ののしる</b>」＝「なむ」の結びは連体形。</p>"], ["④ 反実仮想「ましかば〜まし」", "<div class=\"chips\"><span class=\"chip\">〜ましかば</span><span class=\"arrow\">→</span><span class=\"chip\">もし〜だったら</span><span class=\"arrow\">／</span><span class=\"chip\">〜まし</span><span class=\"arrow\">→</span><span class=\"chip\">〜だっただろうに</span></div><p>事実と反対のことを仮定する言い方。「せましや」の「や」は反語で、「〜しただろうか（いや、しなかった）」。</p>"], ["⑤ 「え〜ず」＝不可能、「〜せ・させ」＝使役", "<div class=\"chips\"><span class=\"chip\">え尽くさず</span><span class=\"arrow\">→</span><span class=\"chip\">書き尽くせない</span></div><div class=\"chips\"><span class=\"chip\">言はせず</span><span class=\"arrow\">→</span><span class=\"chip\">言わせない</span></div><p>「え〜（打消）」は、〜できない。「言は<b>せ</b>ず」の「せ」は、使役の助動詞「す」。漢文の「使役」と同じで、「Aに〜させる」の意味。</p>"]].map(function (k) { return '<div class="item"><h3>' + k[0] + '</h3>' + k[1] + '</div>'; }).join('');
+
+  /* ---------- ⑤ 原文と訳 ---------- */
+  var TR = [["馬のはなむけ", "男もすなる日記といふものを、女もしてみむとて、するなり。", "男の人が書くと聞いている「日記」というものを、女の私も書いてみようと思って、書くのです。"], ["", "それの年の、十二月の二十日あまり一日の日の、戌の時に、門出す。そのよし、いささかにものに書きつく。", "ある年の12月21日、午後8時ごろに、出発する。そのときの様子を、少しだけ書きとめておく。"], ["", "ある人、県の四年五年果てて、例の事どもみなし終へて、解由など取りて、住む館より出でて、船に乗るべき所へ渡る。", "ある人（＝作者）は、土佐の国司の任期（4〜5年）が終わり、いつもの引き継ぎの仕事を全部すませ、解由状などももらって、住んでいた官舎を出て、船に乗る場所へ移った。"], ["", "かれこれ、知る知らぬ、送りす。年ごろよく比べつる人々なむ、別れ難く思ひて、日しきりにとかくしつつ、ののしるうちに夜更けぬ。", "あの人この人、知っている人も知らない人も、見送ってくれる。長年親しくしてきた人たちは、別れがたく思って、一日じゅうあれこれ世話をやき、大騒ぎしているうちに、夜がふけてしまった。"], ["", "二十二日に、和泉国までと、平らかに願立つ。藤原のときざね、船路なれど馬のはなむけす。上中下、酔ひ飽きて、いとあやしく、潮海のほとりにてあざれ合へり。", "22日。和泉の国まで無事に着けますようにと、願をかける。藤原のときざねが、船旅なのに「馬のはなむけ」（送別の宴）をしてくれた。身分の上の人も中の人も下の人も、酔うほど飲んで、たいへん見苦しく、海辺でふざけ合っている。"], ["帰京", "京に入り立ちてうれし。家に至りて、門に入るに、月明かければ、いとよくありさま見ゆ。聞きしよりもまして、いふかひなくぞこぼれ破れたる。", "京に入って、うれしい。家に着いて、門を入ると、月が明るいので、家の様子がとてもよく見える。聞いていたよりもずっと、言いようもないほど、あちこち壊れて傷んでいる。"], ["", "家に預けたりつる人の心も、荒れたるなりけり。中垣こそあれ、ひとつ家のやうなれば、望みて預かれるなり。さるは、たよりごとに、物も絶えず得させたり。", "留守をまかせた人の心も、荒れていたのだなあ。間に垣根はあるけれど、一つの家のようなものだから、こちらから頼んで預かってもらったのだ。それに、ことあるごとに、お礼の品も絶えずあげていたのに。"], ["", "今宵、「かかること」と、声高にものも言はせず。いとはつらく見ゆれど、こころざしはせむとす。", "今夜は、「こんなひどいことになって」と、お供の人たちに大声で文句を言わせない。（預かってくれた人は）たいへん薄情に見えるけれど、お礼はするつもりだ。"], ["", "さて、池めいてくぼまり、水つける所あり。ほとりに松もありき。五年六年のうちに、千年や過ぎにけむ、かたへはなくなりにけり。今生ひたるぞ交じれる。おほかたの、みな荒れにたれば、「あはれ。」とぞ人々言ふ。", "ところで、池のようにくぼんで、水がたまっている所がある。そのそばに、松もあった。五年か六年のうちに、千年も過ぎてしまったのだろうか、半分は枯れてなくなってしまった。新しく生えた松が混じっている。だいたいみんな荒れているので、「ああ、ひどい」と人々は言う。"], ["", "思ひ出でぬことなく、思ひ恋しきがうちに、この家にて生まれし女子の、もろともに帰らねば、いかがは悲しき。船人もみな、子たかりてののしる。かかるうちに、なほ悲しきに堪へずして、ひそかに心知れる人と言へりける歌、", "思い出さないことはなく、恋しく思う中でも、この家で生まれた女の子が、いっしょに帰ってこないので、どれほど悲しいことか。船で帰ってきた人たちも、みな、子どもたちが集まって、にぎやかに騒いでいる。そんな中で、やはり悲しさにたえられなくて、ひそかに心の通じ合う人に詠んで聞かせた歌、"], ["", "　生まれしも帰らぬものをわが宿に小松のあるを見るが悲しさ<br>とぞ言へる。なほ飽かずやあらむ、またかくなむ。<br>　見し人の松の千年に見ましかば遠く悲しき別れせましや", "　生まれた子も、帰ってこないのに、わが家に小松が生えているのを見るのが、悲しいことだ。<br>と詠んだ。まだ満足できないのだろうか、もう一首、こう詠んだ。<br>　（亡き）あの子が、松のように千年も生きて、いっしょに見ることができたなら、こんな遠く悲しい別れをしただろうか（いや、しなかっただろうに）。"], ["", "忘れ難く、口惜しきこと多かれど、え尽くさず。とまれかうまれ、疾く破りてむ。", "忘れがたく、くやしいことはたくさんあるけれど、書き尽くせない。ともかく、早く（この日記を）破り捨ててしまおう。"]];
+  document.getElementById('tr').innerHTML = TR.map(function (t) {
+    return (t[0] ? '<h3 style="margin:14px 0 6px;font-family:var(--f-han)">' + t[0] + '</h3>' : '') +
+      '<p style="margin:0 0 4px;font-family:var(--f-han);font-size:1.02rem">' + fmt(t[1]) + '</p><p style="margin:0 0 .9em;color:var(--muted);font-size:.93rem">' + t[2] + '</p>';
+  }).join('');
+
+  /* ---------- ⑥ 問題 ---------- */
+  var Q = [
+ {
+  "tag": "作品について",
+  "p": "『土佐日記』について、正しい説明はどれ？",
+  "opts": [
+   {
+    "t": "紀貫之が、土佐から京へ帰る旅を、女性のふりをして、仮名で書いた日記。",
+    "why": "男の紀貫之が、「女もしてみむ」と、女性のふりをして書いた。仮名で書いた日記として、とても古い作品。",
+    "ok": 1
+   },
+   {
+    "t": "清少納言が、宮中での出来事を書いた随筆。",
+    "why": "これは『枕草子』。日記ではなく、随筆。"
+   },
+   {
+    "t": "紫式部が、宮仕えの日々をふりかえって書いた日記。",
+    "why": "これは『紫式部日記』。作者は女性で、ふつうに女性として書いている。"
+   },
+   {
+    "t": "藤原道綱母が、結婚生活の悩みを書いた日記。",
+    "why": "これは『蜻蛉日記』。作者は女性。『土佐日記』は、男が女のふりをしたところが特徴。"
+   }
+  ],
+  "exp": "「紀貫之＝土佐日記＝男が女のふりをして書く、仮名の日記」をセットで覚えよう。紀貫之は、『古今和歌集』の編者としても有名。"
+ },
+ {
+  "tag": "内容理解",
+  "p": "作者が「女もしてみむ」と、女性のふりをして書いたのは、なぜか。最も適当なものは？",
+  "opts": [
+   {
+    "t": "当時の男の日記は、漢文で書く公的な記録だった。仮名を使って、自分の気持ちや出来事を自由に書きたかったから。",
+    "why": "仮名は女性の文字とされていた。女のふりをすれば、仮名で、感情を自由に書くことができる。",
+    "ok": 1
+   },
+   {
+    "t": "作者が、本当は女性だったから。",
+    "why": "作者は、紀貫之という男性。女のふりをしている。"
+   },
+   {
+    "t": "天皇から、女性として書くように命じられたから。",
+    "why": "そのような命令の話は、出てこない。"
+   },
+   {
+    "t": "女性のほうが、役人よりも身分が高かったから。",
+    "why": "身分の話ではない。当時は、漢文＝男性、仮名＝女性という使い分けがあった。"
+   }
+  ],
+  "exp": "「男もすなる日記といふものを、女もしてみむとて」がカギ。男が漢文で書く「日記」を、女のふりをして、仮名で書いてみる、という意味。（ここは通説に基づく説明です）"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "冒頭の一文を現代語に訳したものとして、最も適当なものは？",
+  "opts": [
+   {
+    "t": "男の人が書くと聞いている日記というものを、女の私も書いてみようと思って、書くのです。",
+    "why": "「すなる」は伝聞、「してみむ」は意志、「するなり」は断定。",
+    "ok": 1
+   },
+   {
+    "t": "男も書いている日記を、女は書かなくてもよいと思って、書かないのです。",
+    "why": "「女もしてみむ」は、女も「してみよう」という意志。書かないのではなく、書く。"
+   },
+   {
+    "t": "男が書く日記を、女の私に書かせようとして、男が書くのです。",
+    "why": "女が自分で「してみむ」と思っている。使役の意味ではない。"
+   },
+   {
+    "t": "男も書く日記を、女がまねして書いたが、うまくいかなかったのです。",
+    "why": "「うまくいかなかった」という内容は、本文にない。"
+   }
+  ],
+  "exp": "「男もすなる日記といふものを、女もしてみむとて、するなり」＝男が書くという日記を、女の私も書いてみようと思って、書くのです。冒頭の一文で、この作品の約束事（女のふり）が示される。",
+  "src": "<span class=\"bun\">男もすなる日記といふものを、女もしてみむとて、するなり。</span>"
+ },
+ {
+  "tag": "文法：なり",
+  "p": "「男もすなる日記」の「すなる」の「なる」の説明として、正しいものは？（「す」は「する」の終止形）",
+  "opts": [
+   {
+    "t": "伝聞（〜という）の助動詞「なり」の連体形。",
+    "why": "「す」は終止形。終止形につく「なり」は、伝聞・推定。下に「日記」（体言）が続くので、連体形の「なる」。",
+    "ok": 1
+   },
+   {
+    "t": "断定（〜である）の助動詞「なり」の連体形。",
+    "why": "断定の「なり」は、連体形か体言につく。「す」は終止形なので、断定ではない。"
+   },
+   {
+    "t": "形容動詞の活用語尾「なり」の連体形。",
+    "why": "形容動詞の「〜なり」は、「静かなり」のように、語幹につくもの。「す」に形容動詞の語幹はない。"
+   },
+   {
+    "t": "動詞「なる」（変化する）の連体形。",
+    "why": "「す＋なる」と区切るので、動詞「なる」ではない。"
+   }
+  ],
+  "exp": "見分け方：終止形につく「なり」＝伝聞・推定／連体形・体言につく「なり」＝断定。「す」（終止形）＋「なる」＝伝聞（〜という）。",
+  "src": "<span class=\"bun\">男もすなる日記といふものを</span>"
+ },
+ {
+  "tag": "文法：なり",
+  "p": "文末の「するなり」の「なり」の意味は？",
+  "opts": [
+   {
+    "t": "断定（〜である・〜のだ）",
+    "why": "「する」は連体形。連体形につく「なり」は断定。「書くのです」の意味。",
+    "ok": 1
+   },
+   {
+    "t": "伝聞（〜という）",
+    "why": "伝聞の「なり」は、終止形につく。「する」は連体形。"
+   },
+   {
+    "t": "詠嘆（〜だなあ）",
+    "why": "詠嘆の意味は、「なりけり」のようなときに出る。ここは「なり」だけ。"
+   },
+   {
+    "t": "打消（〜ない）",
+    "why": "打消の意味は、「ず」で表す。「なり」にはない。"
+   }
+  ],
+  "exp": "「する」（連体形）＋「なり」＝断定。冒頭の一文では、「すなる」（伝聞）と「するなり」（断定）の、2つの「なり」が出てくる。",
+  "src": "<span class=\"bun\">女もしてみむとて、するなり。</span>"
+ },
+ {
+  "tag": "文法：む",
+  "p": "「女もしてみむとて」の「む」の意味は？",
+  "opts": [
+   {
+    "t": "意志（〜しよう）",
+    "why": "主語が「私」で、「してみよう」と、自分でしようとする気持ち。",
+    "ok": 1
+   },
+   {
+    "t": "推量（〜だろう）",
+    "why": "推量は、他人の行動や、先のことを予想するとき。ここは、自分がしようとしている。"
+   },
+   {
+    "t": "勧誘（〜しませんか）",
+    "why": "相手を誘う言い方ではない。自分の意志。"
+   },
+   {
+    "t": "婉曲（〜ような）",
+    "why": "婉曲は、「〜む人」のように体言に続く形。ここは「とて」に続いている。"
+   }
+  ],
+  "exp": "一人称の主語（私）の「む」は、意志。「してみよう（と思って）」。あとの「せむとす」（お礼をしようとする）の「む」も、同じ意志。",
+  "src": "<span class=\"bun\">女もしてみむとて</span>"
+ },
+ {
+  "tag": "内容理解",
+  "p": "「ある人、県の四年五年果てて、…」の「ある人」とは、誰のことか。",
+  "opts": [
+   {
+    "t": "作者の紀貫之自身。",
+    "why": "女のふりをして書いているので、自分のことを「ある人」と、他人のように書いている。国司の任期を終えたのは、作者本人。",
+    "ok": 1
+   },
+   {
+    "t": "土佐の、ほかの国司。",
+    "why": "別の国司の話ではない。任期を終えて京へ帰る人=作者。"
+   },
+   {
+    "t": "作者に仕えている召し使い。",
+    "why": "国司として、四、五年の任期をつとめた人なので、召し使いではない。"
+   },
+   {
+    "t": "作者を見送りに来た人。",
+    "why": "見送られる側の人。見送りに来た人は、「かれこれ、知る知らぬ」の人たち。"
+   }
+  ],
+  "exp": "「県の四年五年」は、国司の任期（4、5年）のこと。「解由」は、仕事を引き継いだ証明書（解由状）。どれも、国司だった作者本人の動作。"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "「十二月の二十日あまり一日の日の、戌の時に、門出す」を、現代語に訳すと？",
+  "opts": [
+   {
+    "t": "12月21日の午後8時ごろに、出発する。",
+    "why": "「二十日あまり一日」＝21日。「戌の時」＝午後8時ごろ。「門出」＝出発。",
+    "ok": 1
+   },
+   {
+    "t": "12月20日の午後8時ごろに、出発する。",
+    "why": "「二十日あまり一日」は、20日と1日で、21日。"
+   },
+   {
+    "t": "12月21日の午前8時ごろに、出発する。",
+    "why": "「戌」は夜。午前の時刻は、「卯・辰」あたり。"
+   },
+   {
+    "t": "12月21日の午後8時ごろに、到着する。",
+    "why": "「門出」は、出発のこと。到着ではない。"
+   }
+  ],
+  "exp": "時刻は、十二支で表す。戌の時＝午後8時ごろ（午後7〜9時）。「門出」＝家の門を出て旅立つこと。"
+ },
+ {
+  "tag": "語の意味",
+  "p": "「馬のはなむけ」の意味は？",
+  "opts": [
+   {
+    "t": "旅に出る人を見送る、送別のおくりものや宴。",
+    "why": "旅立つ人の馬の鼻を、行く先に向けて見送った習慣から。「餞別」の意味。",
+    "ok": 1
+   },
+   {
+    "t": "旅から帰る人を、迎えるための宴。",
+    "why": "迎える側ではなく、出ていく人を送る。"
+   },
+   {
+    "t": "馬に乗る人を、はげますこと。",
+    "why": "馬を使った行事ではない。「馬の鼻」を向ける習慣が元になった言葉。"
+   },
+   {
+    "t": "ほうびとして、馬を与えること。",
+    "why": "馬を与えるという意味ではない。"
+   }
+  ],
+  "exp": "「馬のはなむけ」＝送別（の宴）。藤原のときざねが、船旅なのに、送別の宴を開いてくれた。「船路なれど」の「なれど」は、「であるけれど」（逆接）。"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "「酔ひ飽きて、いとあやしく、潮海のほとりにてあざれ合へり」の意味として、最も適当なものは？",
+  "opts": [
+   {
+    "t": "酔うほど飲んで、たいへん見苦しく、海辺でふざけ合っている。",
+    "why": "「あざる」は、ふざける。「あやし」は、ここでは見苦しい。",
+    "ok": 1
+   },
+   {
+    "t": "酔いがさめて、とても不安になり、海辺で助け合っている。",
+    "why": "「酔ひ飽きて」は、酔いがさめたのではなく、酔うほど飲んだ意味。"
+   },
+   {
+    "t": "酔っぱらいを不思議に思って、海辺で追いかけている。",
+    "why": "追いかける話は出てこない。「あざれ合へり」は、みなでふざけ合っているようす。"
+   },
+   {
+    "t": "酔ってしまい、不思議なことに、海辺で魚が腐っている。",
+    "why": "「あざる」には、魚が腐る意味もあるが、ここは人々が主語。「ふざける」の意味。"
+   }
+  ],
+  "exp": "「あざる」＝ふざける（魚が腐る意味もある）。「合へり」の「り」は、完了・存続の助動詞。「ふざけ合っている」。身分の上・中・下の人が、みな酔っているようす。"
+ },
+ {
+  "tag": "文法：形容詞",
+  "p": "「月明かければ、いとよくありさま見ゆ」の「明かければ」の説明として、正しいものは？",
+  "opts": [
+   {
+    "t": "形容詞「明かし」の已然形「明かけれ」＋接続助詞「ば」（原因・理由）。",
+    "why": "已然形＋「ば」は、確定条件（〜ので・〜と）。ここは「月が明るいので」。",
+    "ok": 1
+   },
+   {
+    "t": "形容詞「明かし」の未然形＋「ば」（仮定）。",
+    "why": "未然形＋「ば」は、仮定（もし〜ならば）。「明かければ」は已然形。"
+   },
+   {
+    "t": "動詞「明く」の已然形＋「ば」。",
+    "why": "「明かけれ」は、「〜かり・〜けれ」の形で、形容詞の活用。動詞「明く」ではない。"
+   },
+   {
+    "t": "形容詞「明かし」の連体形＋「ば」。",
+    "why": "連体形は「明かき」。「ば」は連体形にはつかない。"
+   }
+  ],
+  "exp": "形容詞（ク活用）：〜く・〜く・〜し・〜き・〜けれ。已然形＋「ば」＝確定条件（理由）。月が明るいので、家の様子がよく見える。"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "「いふかひなくぞこぼれ破れたる」の「いふかひなく」の意味は？",
+  "opts": [
+   {
+    "t": "言いようもないほど（ひどく）",
+    "why": "「いふかひなし」＝言ってもしかたがない・言いようもない。家のひどい荒れ方を表す。",
+    "ok": 1
+   },
+   {
+    "t": "言うまでもなく、きちんと",
+    "why": "「きちんと」という意味はない。荒れて壊れた家の様子。"
+   },
+   {
+    "t": "言い争うこともなく、静かに",
+    "why": "「静かに」ではなく、ひどさを強調している。"
+   },
+   {
+    "t": "話にならないほど、にぎやかに",
+    "why": "家の中ではなく、家の状態をいう。にぎやかではない。"
+   }
+  ],
+  "exp": "「いふかひなし」は、「（ひどすぎて）言ってもどうにもならない」というニュアンス。「ぞ」は強意の係助詞で、結びは連体形「たる」。"
+ },
+ {
+  "tag": "文法：なりけり",
+  "p": "「家に預けたりつる人の心も、荒れたるなりけり」の「なりけり」の意味は？",
+  "opts": [
+   {
+    "t": "〜だったのだなあ（気づきの詠嘆）",
+    "why": "家だけでなく、預けた人の心も荒れていた、と今になって気づいた気持ち。",
+    "ok": 1
+   },
+   {
+    "t": "〜だそうだ（伝聞）",
+    "why": "「なりけり」には、伝聞の意味はない。"
+   },
+   {
+    "t": "〜であった（過去の事実を述べる）",
+    "why": "単なる過去ではなく、「気づいた」という詠嘆の意味が中心。"
+   },
+   {
+    "t": "〜なのだろうか（疑問）",
+    "why": "疑問を表す「か」「や」などがない。"
+   }
+  ],
+  "exp": "断定「なり」の連用形＋詠嘆の「けり」で、「〜だったのだなあ」。「けり」は、過去だけでなく、気づきの意味でも使う。"
+ },
+ {
+  "tag": "文法：こそ",
+  "p": "「中垣こそあれ、ひとつ家のやうなれば、望みて預かれるなり」の説明として、正しいものは？",
+  "opts": [
+   {
+    "t": "「こそ〜あれ（已然形）」が、下に続いて逆接になり、「中垣はあるけれど、一つの家のようなので」の意味。",
+    "why": "「こそ」の結びは已然形（あれ）。そのまま下に続く場合は、逆接（〜けれど）になる。",
+    "ok": 1
+   },
+   {
+    "t": "「こそ」は打消で、「中垣はない」という意味。",
+    "why": "「こそ」に打消の意味はない。「あれ」で、中垣はある。"
+   },
+   {
+    "t": "「あれ」は命令形で、「中垣を置け」という意味。",
+    "why": "「こそ」の結びは已然形。「あれ」は命令形ではない。"
+   },
+   {
+    "t": "「こそ」は疑問で、「中垣があるだろうか」という意味。",
+    "why": "疑問は、「か」「や」「いかが」などで表す。"
+   }
+  ],
+  "exp": "「こそ〜已然形」の係り結び。文が終わるときは強調、下に続くときは逆接（〜けれど）。中垣（隣との仕切りの垣）はあるが、実質一つの家のようなものだから、頼んで預かってもらった。",
+  "src": "<span class=\"bun\">中垣こそあれ、ひとつ家のやうなれば</span>"
+ },
+ {
+  "tag": "内容理解",
+  "p": "「今宵、「かかること」と、声高にものも言はせず」は、誰に、何をさせない、という意味か。",
+  "opts": [
+   {
+    "t": "お供の人たちに、「こんなひどいことになって」と、大声で文句を言わせない。",
+    "why": "夜中で、隣人にも聞こえる。文句を言うと、気まずくなる。「言はせ」の「せ」は使役。",
+    "ok": 1
+   },
+   {
+    "t": "預かってくれた人に、大声でお礼を言わせない。",
+    "why": "お礼を言わせない話ではない。荒れた家への文句の話。"
+   },
+   {
+    "t": "子どもたちに、大声で歌わせない。",
+    "why": "歌の話ではない。「かかること」は、こんなひどい（荒れた）こと。"
+   },
+   {
+    "t": "家来に、大声でどなって人を呼ばせない。",
+    "why": "人を呼ぶ話ではない。"
+   }
+  ],
+  "exp": "「言はせず」＝言は（未然形）＋せ（使役「す」）＋ず。漢文の「使役」と同じ形で、「言わせない」。「かかること」は「こんなひどいこと」で、荒れた家のこと。",
+  "src": "<span class=\"bun\">今宵、「かかること」と、声高にものも言はせず。</span>"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "「いとはつらく見ゆれど、こころざしはせむとす」の意味として、最も適当なものは？（「こころざし」は、お礼・好意のしるし）",
+  "opts": [
+   {
+    "t": "（預かってくれた人は）たいへん薄情に見えるけれど、お礼はするつもりだ。",
+    "why": "「つらし」は、冷淡だ・薄情だ。「せむとす」＝しようとする。",
+    "ok": 1
+   },
+   {
+    "t": "たいへん親切に見えるので、お礼はしないつもりだ。",
+    "why": "「つらく見ゆ」は、親切ではなく、薄情に見える。"
+   },
+   {
+    "t": "たいへん薄情に見えるので、二度と頼まないつもりだ。",
+    "why": "「ど」は逆接。薄情に見えるけれど、お礼はする、という内容。"
+   },
+   {
+    "t": "たいへん薄情に見えるが、お礼をするのは気が進まない。",
+    "why": "「せむとす」は意志。お礼をしようとする。"
+   }
+  ],
+  "exp": "「こころざし」＝気持ちを形に表したもの（お礼の品）。「せむ」の「む」は意志。「つらく見ゆれど」の「れど」は逆接。腹は立つが、礼儀として、お礼はする、という大人の対応。",
+  "src": "<span class=\"bun\">いとはつらく見ゆれど、こころざしはせむとす。</span>"
+ },
+ {
+  "tag": "文法：けむ",
+  "p": "「五年六年のうちに、千年や過ぎにけむ」の「にけむ」の説明として、最も適当なものは？",
+  "opts": [
+   {
+    "t": "完了「ぬ」の連用形＋過去推量「けむ」で、「過ぎてしまっただろうか」。",
+    "why": "「や」の結びは「けむ」（連体形）。わずか数年なのに、千年も過ぎてしまったように見える、という気持ち。",
+    "ok": 1
+   },
+   {
+    "t": "断定「なり」の連用形＋過去「けり」の連体形で、「過ぎたのだった」。",
+    "why": "「けむ」は過去推量。「けり」ではない。"
+   },
+   {
+    "t": "完了「ぬ」の連用形＋過去「き」の連体形で、「過ぎてしまった」。",
+    "why": "「き」の連体形は「し」。ここは「けむ」。"
+   },
+   {
+    "t": "助詞「に」＋意志「む」で、「過ぎよう」。",
+    "why": "「にけむ」の「け」があるので、過去の助動詞が入っている。意志ではない。"
+   }
+  ],
+  "exp": "「千年や過ぎにけむ」＝千年が過ぎてしまっただろうか。数年で千年が過ぎるはずはないが、それほどの荒れ具合だった、という誇張した言い方。「や」の結びは「けむ」。",
+  "src": "<span class=\"bun\">五年六年のうちに、千年や過ぎにけむ、かたへはなくなりにけり。</span>"
+ },
+ {
+  "tag": "内容理解",
+  "p": "船人たちが帰京を喜んでにぎやかに騒ぐ中で、作者が「なほ悲しきに堪へず」と感じたのは、何がいちばんの理由か。",
+  "opts": [
+   {
+    "t": "この家で生まれた女の子が、いっしょに帰ってこられなかったから。",
+    "why": "荒れた家を見て、「この家で生まれた女の子」を思い出し、帰らない悲しみがあふれた。",
+    "ok": 1
+   },
+   {
+    "t": "家がひどく荒れていて、修理に費用がかかるから。",
+    "why": "荒れた家は、悲しみのきっかけ。いちばんの理由は、娘のこと。"
+   },
+   {
+    "t": "預けた人が、お礼を受け取らなかったから。",
+    "why": "お礼を受け取らなかった話は、出てこない。"
+   },
+   {
+    "t": "土佐で出会った友と、別れてしまったから。",
+    "why": "友との別れの話ではない。本文は「女子の、もろともに帰らねば」。"
+   }
+  ],
+  "exp": "手がかりは、「この家にて生まれし女子の、もろともに帰らねば、いかがは悲しき」。まわりの人は喜んでいるのに、作者だけが、娘のことを思って悲しむ。その差が、この場面の切なさ。",
+  "src": "<span class=\"bun\">この家にて生まれし女子の、もろともに帰らねば、いかがは悲しき。</span>"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "「この家にて生まれし女子の、もろともに帰らねば、いかがは悲しき」の「いかがは悲しき」の意味は？",
+  "opts": [
+   {
+    "t": "どれほど悲しいことか。（悲しくないはずがない）",
+    "why": "「いかが」は、疑問・反語の副詞。結びが連体形「悲しき」。「帰らねば」は、帰らないので。",
+    "ok": 1
+   },
+   {
+    "t": "どうして悲しいのか、理由がわからない。",
+    "why": "理由をたずねているのではない。悲しいのは当然だ、という気持ち。"
+   },
+   {
+    "t": "ほとんど悲しくない。",
+    "why": "意味が逆。深い悲しみを表している。"
+   },
+   {
+    "t": "悲しいかどうか、人にたずねている。",
+    "why": "相手にたずねる文ではない。作者自身の、強い悲しみの表現。"
+   }
+  ],
+  "exp": "「帰らねば」＝帰ら（未然形）＋ね（打消「ず」の已然形）＋ば（理由）＝帰らないので。「いかがは悲しき」＝どれほど悲しいことか（反語的に、悲しくないはずがない）。",
+  "src": "<span class=\"bun\">もろともに帰らねば、いかがは悲しき。</span>"
+ },
+ {
+  "tag": "和歌",
+  "p": "次の和歌で、作者が「小松」を見て悲しくなる理由として、最も適当なものは？",
+  "opts": [
+   {
+    "t": "生まれた子は帰ってこないのに、小さな松は新しく生えて育っている。その対比を思うと、悲しいから。",
+    "why": "「生まれしも帰らぬものを」＝生まれた子も帰らないのに。生きて育つ小松と、帰らない娘の対比。",
+    "ok": 1
+   },
+   {
+    "t": "小松が枯れかけていて、病弱だった娘を思い出すから。",
+    "why": "小松が枯れかけている、という内容は出てこない。「小松のある」＝生えている。"
+   },
+   {
+    "t": "小松がじゃまで、庭の手入れが大変だから。",
+    "why": "手入れの話ではない。小松は、命が続いていくことの象徴。"
+   },
+   {
+    "t": "小松は、亡き娘が植えたもので、形見を見るのがうれしいから。",
+    "why": "「うれしい」は逆。「悲しさ」で終わっている。"
+   }
+  ],
+  "exp": "「生まれしも／帰らぬものを／わが宿に／小松のあるを／見るが悲しさ」。体言止め（悲しさ）で、強い余韻を残す。新しく生え育つ小松（生命）と、帰らない娘（死）の対比がポイント。",
+  "src": "<span class=\"bun\">生まれしも帰らぬものをわが宿に小松のあるを見るが悲しさ</span>"
+ },
+ {
+  "tag": "和歌・文法",
+  "p": "次の和歌の意味として、最も適当なものは？（「見し人」は、亡き娘のこと）",
+  "opts": [
+   {
+    "t": "もし亡き娘が、松のように千年も生きていっしょに見ることができたなら、こんな遠く悲しい別れをしただろうか（いや、しなかっただろうに）。",
+    "why": "「ましかば〜まし」は反実仮想（もし〜だったら〜だったのに）。「せましや」の「や」は反語。",
+    "ok": 1
+   },
+   {
+    "t": "あの子は、松のように長く生きたので、遠く悲しい別れをした。",
+    "why": "「ましかば」は反実仮想。実際は松のように長くは生きられなかった、ということ。"
+   },
+   {
+    "t": "もし松が千年も生きるなら、遠く悲しい別れをするだろう。",
+    "why": "「見し人」（娘）が主語。松が主語ではない。"
+   },
+   {
+    "t": "遠く悲しい別れをしたが、松のように千年も忘れない。",
+    "why": "決意の歌ではない。「ましかば〜まし」の反実仮想。"
+   }
+  ],
+  "exp": "「見ましかば」＝まし（反実仮想）の未然形「ましか」＋「ば」。「せましや」＝サ変「す」の未然形「せ」＋まし＋や（反語）。「もし生きていたなら、悲しい別れはしなくてすんだのに」という、かなわない願い。",
+  "src": "<span class=\"bun\">見し人の松の千年に見ましかば遠く悲しき別れせましや</span>"
+ },
+ {
+  "tag": "現代語訳",
+  "p": "「忘れ難く、口惜しきこと多かれど、え尽くさず」の「え尽くさず」の意味は？",
+  "opts": [
+   {
+    "t": "（思いを）書き尽くすことができない。",
+    "why": "「え〜ず」は不可能（〜できない）を表す。",
+    "ok": 1
+   },
+   {
+    "t": "（思いを）書き尽くすつもりはない。",
+    "why": "不可能ではなく、意志の言い方になっている。「え〜ず」は、〜できない。"
+   },
+   {
+    "t": "（思いを）書き尽くした人はいない。",
+    "why": "主語が違う。作者自身が書き尽くせない。"
+   },
+   {
+    "t": "（思いを）まだ書き尽くしていない。",
+    "why": "「え」の不可能の意味が抜けている。「書き尽くせない」。"
+   }
+  ],
+  "exp": "「え＋打消（ず）」＝〜できない（不可能）。忘れがたい、くやしいことは多いけれど、とても書き尽くせない、という意味。",
+  "src": "<span class=\"bun\">忘れ難く、口惜しきこと多かれど、え尽くさず。</span>"
+ },
+ {
+  "tag": "文法：てむ",
+  "p": "「とまれかうまれ、疾く破りてむ」の意味と文法として、正しいものは？",
+  "opts": [
+   {
+    "t": "ともかく、早く（この日記を）破ってしまおう。「てむ」は、完了「つ」の未然形＋意志「む」。",
+    "why": "「とまれかうまれ」は、「ともあれかくもあれ」の変化した形で、「ともかく」。",
+    "ok": 1
+   },
+   {
+    "t": "ともかく、早く破られてしまうだろう。「てむ」は、完了「つ」＋推量「む」。",
+    "why": "主語は「私」。自分で破ろうとする意志。破られる（受身）という内容ではない。"
+   },
+   {
+    "t": "ともかく、早く破りなさい。「てむ」は、完了「つ」＋命令。",
+    "why": "命令の意味はない。作者が自分に言い聞かせている。"
+   },
+   {
+    "t": "ともかく、早く破ってほしい。「てむ」は、願望の助詞。",
+    "why": "願望の助詞は「てしが」「にしが」など。「てむ」は、完了＋意志。"
+   }
+  ],
+  "exp": "「とまれかうまれ」＝ともかく。「疾く」＝早く。「破りてむ」＝て（つ・未然形）＋む（意志）＝破ってしまおう。強い決意の気持ち。",
+  "src": "<span class=\"bun\">とまれかうまれ、疾く破りてむ。</span>"
+ },
+ {
+  "tag": "内容理解（解釈）",
+  "p": "『土佐日記』のこの場面が、「とまれかうまれ、疾く破りてむ」で終わっている理由として、最も適当なものは？",
+  "opts": [
+   {
+    "t": "亡き娘への思いや悔しさは、書き尽くせないほど深く、これ以上書けない気持ちになったから。",
+    "why": "直前の「忘れ難く、口惜しきこと多かれど、え尽くさず」から、読み取れる。",
+    "ok": 1
+   },
+   {
+    "t": "日記を書くのに飽きて、投げやりになったから。",
+    "why": "「飽きた」とは書いていない。悲しみが深くて、書き尽くせない。"
+   },
+   {
+    "t": "天皇に提出する必要がなくなったから。",
+    "why": "提出の話は出てこない。"
+   },
+   {
+    "t": "日記の内容に、まちがいが多かったから。",
+    "why": "まちがいの話ではない。"
+   }
+  ],
+  "exp": "「え尽くさず」（書き尽くせない）→「疾く破りてむ」（早く破ってしまおう）という流れ。悲しみの深さを、言葉の切れ方で表している。（ここは解釈なので、授業での説明も確認してください）"
+ }
+];
+
+  /* ---------- クイズ本体 ---------- */
+  var quiz = document.getElementById('quiz');
+  var S = { i: 0, order: [], sel: null, results: [] };
+  var BEST = 'kokugo-tosa-best1';
+  function loadBest() { try { return Number(localStorage.getItem(BEST)) || 0; } catch (e) { return 0; } }
+  function saveBest(n) { try { if (n > loadBest()) localStorage.setItem(BEST, String(n)); } catch (e) {} }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var MARKS = ['ア', 'イ', 'ウ', 'エ'];
+
+  function yomiHtml(q) { return q.yomi ? '<p class="yomi"><b>正しい読み方（書き下し文）</b><br><span class="yo">' + fmt(q.yomi) + '</span></p>' : ''; }
+  function qHtml(q) {
+    return '<span class="tag">' + q.tag + '</span><p class="p">' + fmt(q.p) + '</p>' + (q.src ? '<div class="src">' + fmt(q.src) + '</div>' : '');
+  }
+  function show() {
+    if (S.i >= Q.length) return result();
+    var q = Q[S.i], ord = S.order[S.i], answered = S.sel !== null;
+    var h = '<div class="qhead"><span>問 ' + (S.i + 1) + ' / ' + Q.length + '</span><span></span></div>' +
+      '<div class="bar"><i style="width:' + Math.round((S.i + (answered ? 1 : 0)) / Q.length * 100) + '%"></i></div><div class="q">' + qHtml(q);
+    h += '<div class="opts">' + ord.map(function (oi, k) {
+      var o = q.opts[oi];
+      if (!answered) return '<button type="button" class="opt" data-k="' + oi + '"><span class="mk">' + MARKS[k] + '</span><span>' + fmt(o.t) + '</span></button>';
+      var cls = 'optr ' + (o.ok ? 'ok' : 'ng') + (S.sel === oi ? ' picked' : '');
+      return '<div class="' + cls + '"><span class="mk">' + (o.ok ? '○' : '×') + '</span><span>' + fmt(o.t) + (S.sel === oi ? '<span class="you">▲ あなたの答え</span>' : '') + '</span><span class="why">' + fmt(o.why) + '</span></div>';
+    }).join('') + '</div>';
+    if (answered) {
+      var good = !!q.opts[S.sel].ok;
+      h += '<p class="verdict ' + (good ? 'ok' : 'ng') + '">' + (good ? '○ 正解！' : '× ざんねん。正解は ○ のところ。') + '</p>' +
+        '<div class="exp">' + yomiHtml(q) + '<b>解説</b><br>' + fmt(q.exp) + '</div>' +
+        '<button type="button" class="btn" id="next">' + (S.i + 1 < Q.length ? '次の問題へ' : '結果を見る') + '</button>';
+    }
+    quiz.innerHTML = h + '</div>';
+  }
+  function result() {
+    var n = S.results.filter(Boolean).length; saveBest(n);
+    quiz.innerHTML = '<div class="q score"><p>おつかれさま！</p><div class="n">' + n + ' / ' + Q.length + '</div><p>まちがえた問題は、「全問題を答えつきで見る」で、選択肢ごとの理由を読み返そう。</p>' +
+      '<p style="color:var(--muted);font-size:.9rem">これまでのベスト：' + loadBest() + ' / ' + Q.length + '</p><button type="button" class="btn" id="again">もう一度やる</button></div>';
+  }
+  function start() { S.i = 0; S.sel = null; S.results = []; S.order = Q.map(function (q) { return shuffle(q.opts.map(function (_, i) { return i; })); }); show(); }
+
+  quiz.addEventListener('click', function (e) {
+    var t = e.target.closest('button'); if (!t) return;
+    if (t.classList.contains('opt')) { var q = Q[S.i]; S.sel = Number(t.getAttribute('data-k')); S.results[S.i] = !!q.opts[S.sel].ok; show(); var v = quiz.querySelector('.verdict'); if (v && v.scrollIntoView) { try { v.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (er) {} } }
+    else if (t.id === 'next') { S.i++; S.sel = null; show(); window.scrollTo(0, quiz.offsetTop - 40); }
+    else if (t.id === 'again') { start(); window.scrollTo(0, quiz.offsetTop - 40); }
+  });
+
+  /* ---------- 一覧で確認 ---------- */
+  var rev = document.getElementById('rev'), revbtn = document.getElementById('revbtn');
+  function reviewHtml() {
+    return Q.map(function (q, qi) {
+      return '<div class="q revq"><h3>問 ' + (qi + 1) + '</h3>' + qHtml(q) + '<div class="opts">' + q.opts.map(function (o, k) {
+        return '<div class="optr ' + (o.ok ? 'ok' : 'ng') + '"><span class="mk">' + (o.ok ? '○' : '×') + '</span><span>' + fmt(o.t) + '</span><span class="why">' + fmt(o.why) + '</span></div>';
+      }).join('') + '</div><div class="exp">' + yomiHtml(q) + '<b>解説</b><br>' + fmt(q.exp) + '</div></div>';
+    }).join('');
+  }
+  revbtn.addEventListener('click', function () {
+    var open = rev.hidden;
+    if (open) { rev.innerHTML = reviewHtml(); rev.hidden = false; revbtn.textContent = '一覧をとじる'; }
+    else { rev.hidden = true; revbtn.textContent = '全問題を答えつきで見る（確認用）'; }
+  });
+
+  start();
+})();
+</script>
+<!-- 連続日数（毎日の学習記録）。端末内（localStorage）だけに保存 -->
+<script>
+(function () {
+  try {
+    var SKEY = 'hh-streak-v1', CLICK = true;
+    function ymd(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+    function today() { return ymd(new Date()); }
+    function yesterday() { var d = new Date(); d.setDate(d.getDate() - 1); return ymd(d); }
+    function load() { try { return JSON.parse(localStorage.getItem(SKEY)) || { last: '', n: 0, max: 0 }; } catch (e) { return { last: '', n: 0, max: 0 }; } }
+    function mark() {
+      try {
+        var st = load(), t = today();
+        if (st.last === t) return;
+        st.n = (st.last === yesterday()) ? st.n + 1 : 1;
+        st.last = t; st.max = Math.max(st.max || 0, st.n);
+        localStorage.setItem(SKEY, JSON.stringify(st));
+      } catch (e) {}
+    }
+    function html() {
+      var st = load(), t = today(), msg, sub = '', on = false;
+      if (st.last === t) { on = true; msg = '🔥 ' + st.n + '日連続で頑張ってるよ！'; if (st.max > st.n) sub = 'これまででいちばん長いのは ' + st.max + '日'; }
+      else if (st.last === yesterday()) { on = true; msg = '🔥 きのうまで ' + st.n + '日連続！'; sub = '今日も1問やると、連続がのびるよ'; }
+      else if (st.max > 0) { msg = 'おかえり！今日からまた、はじめよう'; sub = 'これまででいちばん長いのは ' + st.max + '日。休んでもだいじょうぶ'; }
+      else { msg = '今日の1問から、はじめよう'; sub = '毎日1問でもOK。続けた日数がここに出るよ'; }
+      return '<div class="hh-streak' + (on ? ' on' : '') + '">' + msg + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
+    }
+    function ensureStyle() {
+      if (document.getElementById('hh-streak-css')) return;
+      var s = document.createElement('style'); s.id = 'hh-streak-css';
+      s.textContent = '#hh-streak{box-sizing:border-box;max-width:760px;margin:8px auto;padding:0 12px;font-family:inherit}' +
+        '#hh-streak .hh-streak{padding:9px 14px;border-radius:12px;border:2px solid #cfd8d3;background:#fff;color:#223;font-weight:700;line-height:1.6;font-size:.95rem;text-align:center}' +
+        '#hh-streak .hh-streak small{display:block;font-weight:400;color:#556;font-size:.8rem}' +
+        '#hh-streak .hh-streak.on{border-color:#e8a33d;background:#fff7e6;color:#3a2a00}' +
+        '#hh-streak .hh-streak.on small{color:#6b5a30}';
+      (document.head || document.documentElement).appendChild(s);
+    }
+    function render() {
+      if (!document.body) return;
+      ensureStyle();
+      var e = document.getElementById('hh-streak');
+      if (!e) { e = document.createElement('div'); e.id = 'hh-streak'; document.body.insertBefore(e, document.body.firstChild); }
+      e.innerHTML = html();
+    }
+    window.hhStudied = function () { mark(); render(); };
+    if (CLICK) {
+      document.addEventListener('click', function (ev) {
+        var t = ev.target;
+        if (t && t.closest && t.closest('.opt, .choice, [data-act="pick"], [data-act="check"]')) window.hhStudied();
+      }, true);
+    }
+    render();
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
