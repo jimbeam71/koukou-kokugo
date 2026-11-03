@@ -62,6 +62,30 @@ ruby rt { font-size: .5em; font-weight: 400; color: var(--muted); }
   .mapsvg .m-lbl, .mapsvg .m-city-t { stroke: #1A2231; } .mapsvg .m-lbl { fill: #8EC4F2; } .mapsvg .m-city-t { fill: #D5DBE6; } .mapsvg .m-city { fill: #D5DBE6; }
 }
 .tr p { margin: 0 0 .9em; } .tr p:last-child { margin-bottom: 0; } .tr .yr { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--mark); background: var(--mark-soft); border-radius: 999px; padding: 0 10px; margin-right: 6px; }
+/* 本質 */
+.core { background: var(--warm-soft); border: 2px solid var(--warm-line); border-radius: 16px; padding: 14px 16px; }
+.core p { margin: 0 0 .6em; } .core p:last-child { margin-bottom: 0; }
+.core .big { font-family: var(--f-han); font-size: 1.15rem; font-weight: 700; }
+.teams { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+.team { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; font-size: .92rem; line-height: 1.6; }
+.team h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.team.go { border-top: 6px solid var(--go); } .team.etsu { border-top: 6px solid var(--etsu); }
+.team.go h3 { color: var(--go); } .team.etsu h3 { color: var(--etsu); }
+.team b { display: block; } .team span.sub { color: var(--muted); font-size: .85rem; }
+.tl { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 12px 14px; margin: 10px 0; }
+.tl .row { margin: 8px 0; } .tl .lab { font-size: .85rem; font-weight: 700; margin-bottom: 2px; }
+.tl .track { display: flex; height: 30px; border-radius: 8px; overflow: hidden; background: var(--bg); }
+.tl .seg { display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
+.tl .seg.go { background: #2A4FC4; } .tl .seg.etsu { background: #18794E; } .tl .seg.gray { background: #8A93A6; } .tl .seg.red { background: #B93232; }
+@media (prefers-color-scheme: dark) { .tl .seg.go { background: #4A68C8; } .tl .seg.etsu { background: #2E8F62; } }
+.tl .ax { display: flex; justify-content: space-between; font-size: .78rem; color: var(--muted); font-weight: 700; margin-top: 4px; }
+.qa { display: grid; gap: 10px; margin: 10px 0; }
+.qa .item { background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; }
+.qa .qq { font-weight: 700; margin: 0 0 4px; } .qa .qq::before { content: "Q. "; color: var(--mark); }
+.qa p { margin: 0 0 .5em; } .qa p:last-child { margin-bottom: 0; }
+.qa .mine { font-size: .85rem; color: var(--muted); }
+.tr .who { display: inline-block; font-size: .75rem; font-weight: 700; border-radius: 999px; padding: 0 9px; margin-right: 4px; }
+.tr .who.go { color: var(--go); background: var(--go-soft); } .tr .who.etsu { color: var(--etsu); background: var(--etsu-soft); }
 .legend { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 4px; font-size: .92rem; }
 .legend li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; }
 .legend .n { background: #C0392B; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; font-weight: 700; font-size: .85rem; line-height: 24px; }
@@ -133,9 +157,32 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
   <a class="back" href="teiki.html">← 定期テスト対策</a>
   <p class="eyebrow">漢文　『十八史略』</p>
   <h1>臥薪嘗胆</h1>
-  <p class="lead">呉と越の戦いの話です。まず図で流れをつかんでから、問題を解こう。</p>
+  <p class="lead">呉と越の戦いの話です。まず「結局どういう話か」をつかんでから、図と問題へ進もう。</p>
 
-  <h2>① 地図で場所をたしかめる</h2>
+  <h2>① 結局、どういう話？</h2>
+  <div class="core">
+    <p class="big">リベンジの応酬の話。最後に笑ったのは、あきらめなかった越。</p>
+    <p>①<b>呉</b>が越に勝つ（越の王・句践は降参）　→　②呉の王・夫差は、越を許して油断する　→　③<b>越</b>が20年がまんして力をためて、呉を滅ぼす。<br>つまり、最後は<b>越の大勝利</b>。呉は国ごと滅んだ。</p>
+  </div>
+  <p class="mapnote">人物が多くてもだいじょうぶ。登場するのは、<b>呉チーム</b>と<b>越チーム</b>の2チームだけ。まずここだけ覚えよう。</p>
+  <div class="teams">
+    <div class="team go"><h3>呉チーム（先に勝つ側）</h3><b>夫差（ふさ）…王</b><span class="sub">父を越に殺され、復讐に燃える</span><b>子胥（ししょ）…忠臣</b><span class="sub">「越を許すな！」と警告する人</span><b>伯嚭（はくひ）…ワイロ屋</b><span class="sub">越から賄賂をもらい、「許しましょう」と夫差に勧める</span><span class="sub">（夫差の父の闔廬は、最初に死ぬ人）</span></div>
+    <div class="team etsu"><h3>越チーム（最後に勝つ側）</h3><b>句践（こうせん）…王</b><span class="sub">一度は降参。胆をなめて恥を忘れない</span><b>范蠡（はんれい）・種（しょう）…参謀</b><span class="sub">政治と軍の準備を担当する裏方</span></div>
+  </div>
+  <div class="tl">
+    <div class="lab">この話の「年表」を、長さで見ると（前496年〜前473年）</div>
+    <div class="row"><div class="lab">夫差（呉）</div><div class="track"><div class="seg go" style="width:9%">臥薪</div><div class="seg gray" style="width:91%">越を許して、のんびり…（子胥も死なせる）</div></div></div>
+    <div class="row"><div class="lab">句践（越）</div><div class="track"><div class="seg etsu" style="width:91%;margin-left:9%">嘗胆：約20年、じっと準備</div></div></div>
+    <div class="ax"><span>前496<br>闔廬が死ぬ</span><span style="text-align:center">前494<br>夫椒の戦い・呉の勝ち</span><span style="text-align:right">前473<br>呉が滅ぶ</span></div>
+  </div>
+  <div class="qa">
+    <div class="item"><p class="qq">臥薪は2年、嘗胆は20年って本当？</p><p>だいたい合っている。夫差が薪に寝て復讐の準備をしたのは、父が死んでから越に勝つまでの<b>約2年</b>。句践が胆をなめて準備したのは、負けてから呉を滅ぼすまでの<b>約20年</b>。この差が、勝敗を分けた。</p></div>
+    <div class="item"><p class="qq">許したのは間違いだったの？</p><p>結果だけ見れば、間違い。子胥が「いけません」と言ったのに、夫差は聞かなかった。<br>ただ、「許したこと」そのものより、本当の失敗は次の2つ。<br>・<b>目的を達成して、油断した</b>（復讐をとげたら、薪に寝るのをやめた）<br>・<b>耳に痛いことを言う人を遠ざけ、ごきげんを取る人を信じた</b>（子胥を死なせ、ワイロをもらった伯嚭を信用した）</p></div>
+    <div class="item"><p class="qq">結局、この話の教訓は？</p><p>臥薪嘗胆は、いまは「目的のために苦労をたえる」という意味で使う。でも、話を最後まで読むと、<b>二人の対比</b>になっている。<br>・夫差＝勝ったとたんに、がんばるのをやめた　→　滅びた<br>・句践＝負けても、がんばり続けた　→　勝った<br>つまり、「苦しさを乗りこえる」だけでなく、<b>「勝っても気をゆるめるな」「厳しい忠告に耳を傾けよ」</b>という警告も読み取れる。</p><p class="mine">※ここは、話の流れからの読み取りです。教科書や先生が強調するポイント（「復讐のために苦労を重ねる」）も、あわせて押さえてください。</p></div>
+    <div class="item"><p class="qq">「臥薪嘗胆」が呉と越のごちゃ混ぜなのはなぜ？</p><p>夫差が「臥薪」、句践が「嘗胆」。もともとは別々の二人のエピソードを、あとの人が一つの四字熟語にまとめた。だから、いまの意味は「どっちの国の話か」を気にせず、<b>目標のためにがまんする</b>という意味だけが残っている。</p></div>
+  </div>
+
+  <h2>② 地図で場所をたしかめる</h2>
   <div class="mapbox">
     <svg class="mapsvg" viewBox="0 0 720 461" role="img" aria-labelledby="mapT mapD" xmlns="http://www.w3.org/2000/svg">
 <title id="mapT">春秋時代の呉・越・楚の位置</title>
@@ -210,19 +257,19 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
     <p class="mapnote">海岸線・湖は現在の地形、国のはんいと位置は、春秋時代（前5世紀ごろ）の目安をえがいた略図です。当時の長江の河口は、いまよりずっと内陸にありました。呉は長江の下流の北側、越はその南、楚は長江の中流に大きく広がる国でした。</p>
   </div>
 
-  <h2>② 流れをつかむ</h2>
+  <h2>③ 流れをつかむ</h2>
   <ol class="flow" id="flow"></ol>
 
-  <h2>③ 人物を整理する</h2>
+  <h2>④ 人物を整理する</h2>
   <div class="box" id="ppl"></div>
 
-  <h2>④ 先に確認：この話に出る句形</h2>
+  <h2>⑤ 先に確認：この話に出る句形</h2>
   <div class="kei" id="kei"></div>
 
-  <h2>⑤ 全訳（まず通して読もう）</h2>
+  <h2>⑥ 話し言葉で読む（全訳のかわり）</h2>
   <div class="box tr" id="tr"></div>
 
-  <h2>⑥ 問題</h2>
+  <h2>⑦ 問題</h2>
   <div id="quiz"></div>
   <button class="btn sub" id="revbtn" type="button">全問題を答えつきで見る（確認用）</button>
   <div id="rev" hidden></div>
@@ -277,15 +324,16 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
   /* ---------- 全訳 ---------- */
   var TR = [
-    ['', '闔廬は伍員を取り立てて、国の政治を相談した。員は楚の人、伍奢の子である。奢が殺されたので、員は呉へ逃れてきた。（のちに）呉の兵を率いて楚の都の郢に攻め入った。呉が越を攻めたとき、闔廬は傷を負って死んだ。子の夫差が王に立った。夫差は復讐を心に決め、朝も夕も薪の中に寝た。部屋を出入りするたびに、人に呼びかけさせて言わせた。「夫差よ、おまえは、越の人がおまえの父を殺したことを忘れたのか。」'],
-    ['周の敬王26年（前494年）', '夫差は夫椒で越を破った。越王の句践は、残った兵で会稽山にたてこもり、（夫差に）臣下になりたいと願い出て、妻も召し使いにしたいと申し出た。子胥は「いけません（許してはなりません）」と言った。太宰の伯嚭は、越の賄賂を受け取り、夫差を説いて越を許させた。'],
-    ['', '句践は国に帰ると、胆を座る所にも寝る所にも懸け、座るたびに胆を仰いで嘗めては、「おまえは会稽の恥を忘れたのか」と言った。国の政治はすべて大夫の種に任せ、自分は范蠡とともに軍を整え、呉を討つことを計画して事を進めた。'],
-    ['', '太宰の伯嚭は、子胥のことを悪く言った。子胥は、自分の計略が用いられないのを恥じ、うらんだ。夫差はそこで、子胥に属鏤の剣を与えた。子胥は家の者に告げて言った。「必ず私の墓に檟を植えよ。檟は（のちに棺の）材木にできるからだ。私の目をえぐり取って東門に懸けよ。越の兵が呉を滅ぼすのを見るためだ。」そして自分で首をはねて死んだ。夫差はその遺体を取り上げ、鴟夷（皮の袋）に入れて、江に投げ込んだ。呉の人々はこれをあわれに思い、江のほとりに祠を立て、「胥山」と名づけた。'],
-    ['', '越は十年間、人口と財産を増やし、さらに十年間、民を教え軍事の訓練をした。'],
-    ['周の元王4年（前473年）', '越が呉を攻めた。呉は三度戦って、三度とも負けて逃げた。夫差は姑蘇山に登り、また（かつての句践のように）越に講和を願い出た。范蠡は許さなかった。夫差は言った。「私には、子胥に会わせる顔がない。」そこで布で顔をおおって死んだ。']
+    ['go', '前496年', '呉の王・闔廬は、越との戦いでケガをして死んでしまう。跡を継いだ息子の夫差は、「父の仇を討つ！」と心に決めた。毎晩、薪の上に寝て自分を苦しめ、部屋を出入りするたびに家来にこう言わせた。「夫差よ、おまえの父を殺したのは越の人間だぞ。忘れたのか？」'],
+    ['go', '前494年', '夫差は夫椒の戦いで越に大勝ちする。越の王・句践は、わずかな兵で会稽山に逃げこみ、夫差に頭を下げた。「あなたの家来になります。妻も召し使いに差し出します。どうか許してください。」'],
+    ['go', '呉の中で', '呉の忠臣・子胥は反対した。「許してはいけません！いま滅ぼさないと、あとで必ず仕返しされます。」ところが、伯嚭は越からワイロをもらっていて、「許してあげましょうよ」と夫差に勧める。夫差は伯嚭の意見を聞き、越を許してしまった。'],
+    ['etsu', '前494年〜', '国に帰った句践は、胆（苦い）を、座る場所にも寝る場所にもぶら下げた。そして、座るたびに胆をなめて、自分に言う。「おまえは、会稽での恥を忘れたのか？」政治は種に、軍の準備は范蠡に任せ、じっくり復讐の計画を進めた。'],
+    ['go', 'そのころ呉', '伯嚭は、子胥の悪口を夫差に吹きこむ。子胥は「私の意見が通らない」とうらみ言をもらした。怒った夫差は、子胥に自殺用の剣を送りつける。子胥は家族にこう言い残して自害した。「私の墓に檟を植えてくれ。呉が滅ぶとき、棺の材料になるだろう。私の目はえぐって東門にかけてくれ。越が呉を滅ぼすところを、この目で見届けたい。」夫差は子胥の遺体を皮袋に入れて川に投げ捨てた。'],
+    ['etsu', '約20年', '越は、10年かけて人口と財産を増やし、さらに10年かけて国民の教育と軍事訓練をした。'],
+    ['etsu', '前473年', '越はついに呉を攻める。呉は三回戦って、三回とも負けた。夫差は姑蘇山に逃げて、あのときの句践と同じように、「許してほしい」と頼む。しかし、范蠡は許さなかった。夫差は言う。「あの世で、子胥に合わせる顔がない…」。顔を布でおおって、自害した。']
   ];
   document.getElementById('tr').innerHTML = TR.map(function (t) {
-    return '<p>' + (t[0] ? '<span class="yr">' + t[0] + '</span>' : '') + fmt(t[1]) + '</p>';
+    return '<p><span class="who ' + t[0] + '">' + (t[0] === 'go' ? '呉' : '越') + '</span><span class="yr">' + t[1] + '</span><br>' + fmt(t[2]) + '</p>';
   }).join('');
 
   /* ---------- ② 人物 ---------- */
