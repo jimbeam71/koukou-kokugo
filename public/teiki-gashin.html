@@ -38,7 +38,7 @@ h2 { font-family: var(--f-han); font-size: 1.3rem; margin: 30px 0 10px; }
 ruby rt { font-size: .5em; font-weight: 400; color: var(--muted); }
 .bun { font-family: var(--f-han); font-size: 1.3rem; }
 .q .src { display: flex; justify-content: center; padding: 14px 12px; overflow-x: auto; }
-.src .bun { writing-mode: vertical-rl; height: 11em; line-height: 2.4; letter-spacing: .05em; }
+.src .bun { writing-mode: vertical-rl; max-height: 11em; line-height: 2.4; letter-spacing: .05em; }
 .src .bun .c { position: relative; display: inline-block; line-height: 1; }
 .src .bun .c .k { position: absolute; left: -1em; bottom: -.1em; margin: 0; font-size: .55em; line-height: 1; vertical-align: baseline; writing-mode: horizontal-tb; white-space: nowrap; }
 .src .bun .c .k + .k { bottom: .55em; }
@@ -86,6 +86,11 @@ ruby rt { font-size: .5em; font-weight: 400; color: var(--muted); }
 .qa .mine { font-size: .85rem; color: var(--muted); }
 .tr .who { display: inline-block; font-size: .75rem; font-weight: 700; border-radius: 999px; padding: 0 9px; margin-right: 4px; }
 .tr .who.go { color: var(--go); background: var(--go-soft); } .tr .who.etsu { color: var(--etsu); background: var(--etsu-soft); }
+.memo { background: var(--mark-soft); border: 2px solid var(--mark); border-radius: 16px; padding: 12px 16px; margin: 12px 0; }
+.memo .big2 { font-family: var(--f-han); font-weight: 700; font-size: 1.05rem; margin: 0 0 6px; }
+.memo p { margin: 6px 0 0; font-size: .95rem; }
+.yomi { margin: 0 0 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--warm-line); }
+.yomi .yo { font-family: var(--f-han); font-size: 1.1rem; font-weight: 700; }
 .legend { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 4px; font-size: .92rem; }
 .legend li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; }
 .legend .n { background: #C0392B; color: #fff; border-radius: 50%; width: 24px; height: 24px; text-align: center; font-weight: 700; font-size: .85rem; line-height: 24px; }
@@ -163,6 +168,12 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
   <div class="core">
     <p class="big">リベンジの応酬の話。最後に笑ったのは、あきらめなかった越。</p>
     <p>①<b>呉</b>が越に勝つ（越の王・句践は降参）　→　②呉の王・夫差は、越を許して油断する　→　③<b>越</b>が20年がまんして力をためて、呉を滅ぼす。<br>つまり、最後は<b>越の大勝利</b>。呉は国ごと滅んだ。</p>
+  </div>
+  <div class="memo">
+    <p class="big2">覚え方：「臥薪嘗胆（がしんしょうたん）　夫差・句践　呉越同舟」</p>
+    <div class="chips"><span class="chip">臥薪</span><span class="arrow">＝</span><span class="chip">夫差（呉）</span><span class="arrow">／</span><span class="chip">嘗胆</span><span class="arrow">＝</span><span class="chip">句践（越）</span><span class="arrow">／</span><span class="chip">呉越同舟</span><span class="arrow">＝</span><span class="chip">呉と越</span></div>
+    <p>三つとも「呉 → 越」の順に並んでいる。夫差（ふさ）・句践（こうせん）も、呉の王 → 越の王の順。これを唱えれば、「臥薪は呉、嘗胆は越」と迷わない。</p>
+    <p>ちなみに「呉越同舟」は、仲の悪い呉の人と越の人が、同じ舟に乗り合わせた、という意味から。嵐になれば、敵どうしでも助け合う、という話（『孫子』）。</p>
   </div>
   <p class="mapnote">人物が多くてもだいじょうぶ。登場するのは、<b>呉チーム</b>と<b>越チーム</b>の2チームだけ。まずここだけ覚えよう。</p>
   <div class="teams">
@@ -352,7 +363,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
   /* ---------- ③ 句形の図解 ---------- */
   document.getElementById('kei').innerHTML = [
-    '<div class="item"><h3>① 使役「使 A B」</h3><div class="chips"><span class="chip">使</span><span class="chip">A</span><span class="chip">B</span><span class="arrow">→</span><span class="chip">A をして B（せ）しむ</span></div><p>「A に B させる」。「しむ」は最後に読むので、B の下から「使」に返る。</p></div>',
+    '<div class="item"><h3>① 使役「使 A B」</h3><div class="chips"><span class="chip">使</span><span class="chip">A</span><span class="chip">B</span><span class="arrow">→</span><span class="chip">A をして B（せ）しむ</span></div><p>「A に B させる」。「しむ」は最後に読むので、B の下から「使」に返る。使役の字は「使」のほか、<b>「令」「教」「遣」</b>も同じ働き。</p></div>',
     '<div class="item"><h3>② 置き字「于・於・乎」</h3><div class="chips"><span class="chip">越を</span><span class="chip">夫椒<small>に</small></span><span class="chip" style="opacity:.55">于</span><span class="arrow">→</span><span class="chip">于は読まない</span></div><p>「于」は場所などを示す「に」の役目。読まないで、直前の字に送り仮名「ニ」をつける。</p></div>',
     '<div class="item"><h3>③ 「而」「女」＝「汝」（おまえ）</h3><div class="chips"><span class="chip">而・女</span><span class="arrow">＝</span><span class="chip">なんぢ（おまえ）</span></div><p>ふつうの「而」は「て／して」とつなぐ字。でも、人を呼びかける場面では「汝」の意味になる。文末の「邪」は「か」（疑問）。</p></div>'
   ].join('');
@@ -368,8 +379,47 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
       ],
       exp: '「臥薪」＝薪の上に寝る（夫差）、「嘗胆」＝苦い胆をなめる（句践）。復讐を忘れないように、わざと苦しい思いをして気持ちを保った。' },
 
+    { tag: '出典', p: 'この文章の出典『十八史略』について、正しい説明はどれ？',
+      opts: [
+        { t: '宋末元初の曽先之が、中国の歴史を短くまとめた書物。', ok: 1, why: '太古から南宋までの歴史を、読みやすく短くまとめた入門的な歴史書。日本でも、漢文の教材としてよく使われる。' },
+        { t: '前漢の司馬遷が書いた、中国の歴史書。', why: '司馬遷の作品は『史記』。『十八史略』は、『史記』などをもとに、あとの時代にまとめ直した本。' },
+        { t: '孔子とその弟子の言葉をまとめた書物。', why: 'これは『論語』。歴史の本ではなく、思想の本。' },
+        { t: '戦いの方法を説いた、兵法書。', why: 'これは『孫子』など。『十八史略』は、歴史を述べた本。' }
+      ],
+      exp: '「『十八史略』＝曽先之（そうせんし）＝宋末元初の歴史書」をセットで覚えよう。出典を答える問題は、定期テストの定番。' },
+
+    { tag: '書き下し（定番）', p: '冒頭の「夫差立、志復讎。」の傍線部「志復讎」を、書き下し文に改めると？（「讎」は「あだ」と読み、「かたき」の意味）',
+      src: '<span class="bun">夫差立、志^二^復^レ^讎^一^</span>',
+      yomi: '讎を復せんと志す。',
+      opts: [
+        { t: '讎（あだ）を復（ふく）せんと志（こころざ）す。', ok: 1, why: '読む順は「讎」→「復」→「志」。「讎を復す」＝かたきに仕返しをする。「〜せんと志す」＝〜しようと心に決める。' },
+        { t: '讎（あだ）に復せんと志す。', why: '「讎に」だと、かたきに対して何かをするのかがあいまいになる。復讎は「讎を復す」と、「を」で読む。' },
+        { t: '志して讎を復す。', why: '返り点を無視して、上から順に読んでいる。「志」には二点があり、先に一点の「讎」、次に「復」を読み、最後に「志」へ返る。' },
+        { t: '讎を志して復す。', why: '「復」と「志」の順が逆。「復す」を先に読んでから、最後に「志す」と読む。' }
+      ],
+      exp: '「復讎」＝仇を討つ。「讎」はかたき、「復」は「お返しをする」の意味。「せんと」の「ん」は意志を表す。書き下し文は、まず返り点どおりに、読む順番を決めることから。' },
+
+    { tag: '現代語訳（定番）', p: '「志復讎」を現代語に訳すと、最も適当なものは？',
+      opts: [
+        { t: 'かたきを討とうと、心に決める。', ok: 1, why: '「志」は、こころざす（心に決める）。「復讎」は、かたきを討つ。' },
+        { t: 'かたきに気づかれないように、志を隠す。', why: '「隠す」の意味は、どこにもない。夫差は、むしろ薪に寝たり、人に呼ばせたりして、復讐の決意を忘れないようにした。' },
+        { t: 'かたきを許そうと、心に決める。', why: '「復讎」は仇を討つこと。許す意味ではない（許したのは、あとの場面で夫差が句践を許したとき）。' },
+        { t: '復讎の志を、わすれようとする。', why: '意味が逆。夫差は、復讎を忘れないように、毎日自分に思い出させた。' }
+      ],
+      exp: '「志＋動作」＝「〜しようと心に決める」。復讎は「仇を討つ」。ここは、闔廬の死のあと、夫差が復讐を決意する、物語の始まりの場面。' },
+
+    { tag: '重要語', p: '「讎」と「復讎」の意味の組み合わせとして、正しいものは？',
+      opts: [
+        { t: '讎＝かたき　復讎＝かたきを討つ', ok: 1, why: '「讎」は、かたき（敵・仇）。「復」は、お返しをするという意味で、やられたことを仕返しする。' },
+        { t: '讎＝恩人　復讎＝恩返しをする', why: '「復」に「お返しをする」の意味があるので、「恩返し」と混同しやすい。でも、「讎」は恩人ではなく、かたき。' },
+        { t: '讎＝友人　復讎＝友と仲なおりする', why: '「讎」は友人ではなく、かたき。仲なおりの意味はない。' },
+        { t: '讎＝戦い　復讎＝戦いをやめる', why: '「讎」は戦いそのものではなく、相手（かたき）。「やめる」の意味もない。' }
+      ],
+      exp: '「讎（あだ）」＝かたき。「復讎」＝仇を討つ。「復」の「かえす・お返しをする」の意味は、「報復（ほうふく）」の「復」と同じ。' },
+
     { tag: '句形：使役', p: '夫差は、復讐を忘れないように、部屋の出入りのたびに、家来に自分へ向けて大声で呼びかけさせました。次の一文の書き下し文として正しいものは？',
       src: '<span class="bun">出入使^二^人呼曰^一^</span>',
+      yomi: '出入するごとに、人をして呼びて曰はしむ。',
       opts: [
         { t: '出入するごとに、人をして呼びて曰はしむ。', ok: 1, why: '「使」は使役。「人をして〜しむ」と読み、「人に（呼ばせて）言わせる」の意味になる。' },
         { t: '出入するごとに、人を使ひて呼びて曰く。', why: '「使」を、ふつうの動詞「つかふ」と読んでいる。「使」の下に人（A）と動作（B）が続く形は、使役。' },
@@ -378,8 +428,42 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
       ],
       exp: '「使 A B」＝「A をして B しむ」。読む順は「人」→「呼」→「曰」→「使」。「しむ」は最後に読むので、「曰」から「使」に返る（一・二点）。ここでは、夫差が家来に言わせた内容が次の問題の文。' },
 
+    { tag: '使役の練習①', p: '次の文を、書き下し文に改めると？（「子を行かせる」という意味です）',
+      src: '<span class="bun">使^二^子行^一^。</span>',
+      yomi: '子をして行かしむ。',
+      opts: [
+        { t: '子をして行かしむ。', ok: 1, why: '「使 A B」＝「A をして B しむ」。「行」は未然形の「行か」になり、「しむ」がつく。' },
+        { t: '子を使ひて行く。', why: '「使」を、ふつうの動詞（つかう）と読んでいる。使役なら、最後に「しむ」。' },
+        { t: '子使ひて行かしむ。', why: '「子を」の「を」が抜けている。「A をして」の形。' },
+        { t: '使ひの子行く。', why: '「使ひの子」は名詞の読み方。使役の文型ではない。' }
+      ],
+      exp: '使役の型は「使 A B」。読む順は「A」→「B」→「使」。「しむ」は最後に読み、「B」は未然形につなぐ（行く→行か）。' },
+
+    { tag: '使役の練習②', p: '次の文を、書き下し文に改めると？（「令」も使役の字）',
+      src: '<span class="bun">令^二^兵守^レ^門^一^。</span>',
+      yomi: '兵をして門を守らしむ。',
+      opts: [
+        { t: '兵をして門を守らしむ。', ok: 1, why: '「令」は「使」と同じ使役の字。「兵をして」＋「門を守らしむ」。「しむ」は未然形につくので、「守ら」。' },
+        { t: '兵をして門を守りしむ。', why: '「しむ」は、未然形につく。「守り」ではなく「守ら」。' },
+        { t: '門をして兵を守らしむ。', why: 'A（兵）と目的語（門）が入れかわっている。「兵が門を守る」のに、「令」の直後の「兵」が A。' },
+        { t: '兵令して門を守る。', why: '「令」を使役ではなく、単に「命令する」と読んでいる。最後に「しむ」がない。' }
+      ],
+      exp: '使役の字は「使」「令」「教」「遣」。形は同じ：「〜 A B」＝「A をして B しむ」。守＝まもる、門＝もん。' },
+
+    { tag: '使役の練習③', p: '次の文の意味として、最も適当なものは？（「遣」も使役の字。「買」は買う）',
+      src: '<span class="bun">遣^二^人買^レ^酒^一^。</span>',
+      yomi: '人をして酒を買はしむ。',
+      opts: [
+        { t: '人に、酒を買いに行かせる。', ok: 1, why: '「遣 A B」＝「A をして B せしむ」。人に酒を買わせる意味。' },
+        { t: '人が、酒を買いに行く。', why: '「遣」の使役の意味を無視している。行かせる（使う）のは、書かれていない主語の人で、行くのは「人」。' },
+        { t: '人に、酒を売らせる。', why: '「買」と「売」の取りちがい。「買」は、買う。' },
+        { t: '酒を、人に買わせない。', why: '打ち消しの字（不・無）がない。「させない」とは読めない。' }
+      ],
+      exp: '「遣」＝人をつかわして〜させる。「人をして酒を買はしむ」。返り点は、読む順に「人」→「酒」→「買」→「遣」。' },
+
     { tag: '句形：汝・疑問', p: '家来が夫差に呼びかけた次の言葉の意味として、最も適当なものは？（「而」は「汝」と同じ意味、「邪」は疑問を表す）',
       src: '<span class="bun">夫差、而忘^三^越人之殺^二^而父^一^邪。</span>',
+      yomi: '夫差、而（なんぢ）、越人の而（なんぢ）が父を殺ししを忘れたるか。',
       opts: [
         { t: '夫差よ、おまえは、越の人がおまえの父を殺したことを忘れたのか。', ok: 1, why: '「而」は「汝」（おまえ）。「越人之殺而父」＝越人がおまえの父を殺したこと。「邪」は疑問の「か」。' },
         { t: '夫差よ、そして、越の人が父を殺したことを忘れたのか。', why: '「而」を「そして」の意味の接続の字と考えた誤り。呼びかけの場面では、「汝」。' },
@@ -399,6 +483,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
     { tag: '句形：置き字', p: '次の一文は、「于」を置き字として読みます。書き下し文として正しいものは？',
       src: '<span class="bun">夫差敗^二^越于夫椒^一^。</span>',
+      yomi: '夫差、越を夫椒に敗る。',
       opts: [
         { t: '夫差、越を夫椒に敗る。', ok: 1, why: '「敗」の目的語が「越」。夫差が越を破った。「于」は読まず、「夫椒」に「に」をつける。' },
         { t: '夫差、越に夫椒に敗る。', why: '「越に」と読むと、夫差が越に負けたことになる。直後に、越王が臣下になりたいと願い出ているので、勝ったのは呉。' },
@@ -409,6 +494,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
     { tag: '内容理解・使役', p: '「太宰伯嚭、受越賂、説夫差、赦越」で、伯嚭が果たした役割として、正しいものは？',
       src: '<span class="bun">太宰伯嚭、受^二^越賂^一^、説^二^夫差^一^赦^レ^越。</span>',
+      yomi: '太宰伯嚭、越の賂を受け、夫差に説きて越を赦さしむ。',
       opts: [
         { t: '越の賄賂を受け取り、夫差に説いて、越を許させた。', ok: 1, why: '「説二夫差一赦レ越」は、「夫差に説きて、越を赦さしむ」。「説いて〜させる」という使役の形。' },
         { t: '越を許してはいけないと、夫差に強く進言した。', why: 'これは子胥。子胥は、直前で「不可」（いけません）と言っている。' },
@@ -437,6 +523,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
     { tag: '内容理解', p: '夫差は、恨みを口にした子胥に、「属鏤之剣」（名剣の名）を与えた。これは何を意味するか。',
       src: '<span class="bun">夫差乃賜^二^子胥属鏤之剣^一^。</span>',
+      yomi: '夫差乃ち子胥に属鏤の剣を賜ふ。',
       opts: [
         { t: '剣で自ら命を絶てという、自害の命令。', ok: 1, why: '剣を与えられたあと、すぐ後ろに「乃自剄」（そこで自分の首を切って死んだ）とある。' },
         { t: '長年の忠義に対する、ほうび。', why: '「賜」は与える意味だが、恨みを言った子胥へのほうびではない。直後に子胥は自害している。' },
@@ -447,6 +534,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
     { tag: '内容理解', p: '子胥が自害の前に、家族に言い残した次の言葉で、「以観越兵之滅呉」に込められた気持ちとして、最も適当なものは？',
       src: '<span class="bun">必樹吾墓檟、檟可材也。抉吾目、懸東門、以観越兵之滅呉。</span>',
+      yomi: '必ず吾が墓に檟を樹ゑよ。檟は材とすべきなり。吾が目を抉りて東門に懸けよ。以て越兵の呉を滅ぼすを観んと。',
       opts: [
         { t: '越の軍が呉を滅ぼすのを、死んだあとも、自分の目で見届けたい。', ok: 1, why: '「抉吾目、懸東門」＝自分の目をえぐって東門に懸けよ。「以観越兵之滅呉」＝それで、越の兵が呉を滅ぼすのを見よう（見届けよう）。' },
         { t: '呉を守るために、目を東門に懸けて、魔よけにしたい。', why: '目を懸ける理由は「越兵が呉を滅ぼすのを観る」ため。魔よけではない。' },
@@ -457,6 +545,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
     { tag: '内容理解', p: '「夫差上姑蘇、亦請成於越。」の「亦」（また）は、どんなことを受けた言葉か。',
       src: '<span class="bun">夫差上^二^姑蘇^一^、亦請^二^成於越^一^。</span>',
+      yomi: '夫差姑蘇に上り、亦成を越に請ふ。',
       opts: [
         { t: '以前に、句践も会稽山で降伏を願ったこと。', ok: 1, why: '「亦」＝夫差も、あのときの句践と同じように。立場が逆転して、今度は夫差が越に、講和（成）を願う。' },
         { t: '以前にも、夫差が越に講和を願ったことがあること。', why: '本文で以前に降伏を願ったのは、夫差ではなく句践のほう。' },
@@ -467,13 +556,33 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
 
     { tag: '内容理解', p: '夫差は、越に許されず、「吾無以見子胥」と言って顔を布でおおい、死んだ。この言葉の気持ちとして、最も適当なものは？',
       src: '<span class="bun">吾無^三^以見^二^子胥^一^。</span>',
+      yomi: '吾以て子胥に見ゆる無し。',
       opts: [
         { t: '子胥の忠告を聞かなかったことを後悔し、あの世で子胥に合わせる顔がない。', ok: 1, why: '「無以〜」は「〜するすべがない」。「見」は「まみゆ」（会う）。子胥に会うことができない（合わせる顔がない）の意味。' },
         { t: '子胥の墓がどこにあるのかわからず、あやまりに行けない。', why: '墓の場所は、本文の問題になっていない。反省の気持ちを表した言葉。' },
         { t: '越の味方になった子胥に怒りを感じている。', why: '子胥は呉の忠臣で、越の味方ではない。夫差のほうが、子胥にあやまる立場。' },
         { t: '戦いを助けてくれなかった子胥をうらんでいる。', why: '子胥を死に追いこんだのは夫差自身。うらむのではなく、後悔している。' }
       ],
-      exp: '「吾、以て子胥に見ゆる無し」。顔を布でおおったのも、子胥に顔向けできないことを表している。子胥の「越を許すな」の忠告に従わなかったことが、呉の滅亡につながった。' }
+      exp: '「吾、以て子胥に見ゆる無し」。顔を布でおおったのも、子胥に顔向けできないことを表している。子胥の「越を許すな」の忠告に従わなかったことが、呉の滅亡につながった。' },
+
+    { tag: '故事成語', p: '「呉越同舟」の意味として、最も適当なものは？',
+      opts: [
+        { t: '仲の悪い者どうしが、同じ場所にいあわせること。（また、そのまま力を合わせること。）', ok: 1, why: '呉と越は、昔から仲の悪い国。その人どうしが同じ舟に乗り合わせ、嵐にあえば、助け合う。これが『孫子』にある話から。' },
+        { t: '目的のために、長い間、苦労をたえしのぶこと。', why: 'これは「臥薪嘗胆」。夫差が薪に寝て、句践が胆をなめた話から。' },
+        { t: '一度負けた者が、勢いを盛り返して、また攻めてくること。', why: 'これは「捲土重来」。この話の句践のように、負けても立ち直って、攻め返すこと。' },
+        { t: '敵に降参して、家来になること。', why: 'これは、会稽山での、句践の場面の内容。「呉越同舟」という言葉の意味ではない。' }
+      ],
+      exp: '「呉越同舟」＝仲の悪い者どうしが、同じ場所にいる（共通の困難には、力を合わせる）。覚え方：「臥薪嘗胆　夫差・句践　呉越同舟」（呉→越の順）。' },
+
+    { tag: '故事成語', p: '「捲土重来」の意味として、最も適当なものは？',
+      opts: [
+        { t: '一度負けた者が、勢いを盛り返して、ふたたび攻めてくること。', ok: 1, why: '「捲土」は、土ぼこりを巻き上げるような勢い。「重来」は、重ねてまた来ること。この話の句践は、まさにこの形。' },
+        { t: '負けたことを、あきらめて引きさがること。', why: '意味が逆。あきらめず、もう一度やって来ること。' },
+        { t: '勝った者が、油断して、あとで負けること。', why: 'これは、この話の夫差のこと。「捲土重来」は、負けたほうが、立ち直って攻め返す意味。' },
+        { t: '仲の悪い者どうしが、同じ場所にいあわせること。', why: 'これは「呉越同舟」。' }
+      ],
+      exp: '「捲土重来（けんどちょうらい）」は、唐の杜牧の詩『題烏江亭』が出典。ふたたび戦おうとして負けた項羽に向けて、「もう一度、勢いを巻き返して攻めてくることもできたのでは」と詠んだ。ここでは、「臥薪嘗胆」の句践の姿と重ねて、覚えておこう。' },
+
   ];
 
   /* ---------- クイズ本体 ---------- */
@@ -485,6 +594,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
   function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   var MARKS = ['ア', 'イ', 'ウ', 'エ'];
 
+  function yomiHtml(q) { return q.yomi ? '<p class="yomi"><b>正しい読み方（書き下し文）</b><br><span class="yo">' + fmt(q.yomi) + '</span></p>' : ''; }
   function qHtml(q) {
     return '<span class="tag">' + q.tag + '</span><p class="p">' + fmt(q.p) + '</p>' + (q.src ? '<div class="src">' + fmt(q.src) + '</div>' : '');
   }
@@ -502,7 +612,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
     if (answered) {
       var good = !!q.opts[S.sel].ok;
       h += '<p class="verdict ' + (good ? 'ok' : 'ng') + '">' + (good ? '○ 正解！' : '× ざんねん。正解は ○ のところ。') + '</p>' +
-        '<div class="exp"><b>解説</b><br>' + fmt(q.exp) + '</div>' +
+        '<div class="exp">' + yomiHtml(q) + '<b>解説</b><br>' + fmt(q.exp) + '</div>' +
         '<button type="button" class="btn" id="next">' + (S.i + 1 < Q.length ? '次の問題へ' : '結果を見る') + '</button>';
     }
     quiz.innerHTML = h + '</div>';
@@ -527,7 +637,7 @@ button.btn.sub { background: var(--card); color: var(--mark); border: 2px solid 
     return Q.map(function (q, qi) {
       return '<div class="q revq"><h3>問 ' + (qi + 1) + '</h3>' + qHtml(q) + '<div class="opts">' + q.opts.map(function (o, k) {
         return '<div class="optr ' + (o.ok ? 'ok' : 'ng') + '"><span class="mk">' + (o.ok ? '○' : '×') + '</span><span>' + fmt(o.t) + '</span><span class="why">' + fmt(o.why) + '</span></div>';
-      }).join('') + '</div><div class="exp"><b>解説</b><br>' + fmt(q.exp) + '</div></div>';
+      }).join('') + '</div><div class="exp">' + yomiHtml(q) + '<b>解説</b><br>' + fmt(q.exp) + '</div></div>';
     }).join('');
   }
   revbtn.addEventListener('click', function () {
